@@ -38,7 +38,7 @@ function ModalMenu({ isOpen, onRequestClose }) {
    // Отслеживаем изменение ссылки
    useEffect(() => {
       onRequestClose();
-   }, [location.pathname]); // Срабатывает при изменении location.pathname
+   }, [location.pathname, onRequestClose]); // Добавляем onRequestClose как зависимость
 
    return (
       <Modal

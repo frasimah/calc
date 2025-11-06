@@ -1,5 +1,5 @@
 import '../Modals.scss'
-import Form_block from "../../form_block/form_block";
+import FormBlock from "../../form_block/form_block";
 import Modal from 'react-modal';
 import { useState } from 'react';
 import Loader from '../../Loader/Loader';
@@ -30,7 +30,7 @@ function FormModalTyp({ isOpen, onRequestClose, formTitle, setModalType, calcula
                {formTitle ? formTitle : 'Оставить заявку'}
             </div>
             <div className={'descr'}>Наш специалист свяжется в&nbsp;ближайшее время</div>
-            <Form_block setModalType={setModalType} calculatorData={calculatorData} />
+            <FormBlock setModalType={setModalType} calculatorData={calculatorData} />
          </div>
       </div>
    );

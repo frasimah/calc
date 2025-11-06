@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './form_block.scss';
 import { PatternFormat } from 'react-number-format';
 import RecaptchaScript from '../RecaptchaScript/RecaptchaScript';
 import InvisibleRecaptcha from '../RecaptchaScript/InvisibleRecaptcha';
 import { Link } from 'react-router-dom';
 
-const Form_block = ({ setModalType, calculatorData }) => {
+const FormBlock = ({ setModalType, calculatorData }) => {
     const [disabledBtn, setDisabledBtn] = useState(true);
     const [formData, setFormData] = useState({
         name: '',
@@ -33,7 +33,7 @@ const Form_block = ({ setModalType, calculatorData }) => {
     };
 
     // Функция для проверки условий доступности кнопки
-    const checkFormValidity = () => {
+    const checkFormValidity = useCallback(() => {
         // Проверяем, что все обязательные поля заполнены и чекбокс установлен
         // const phoneRegex = /^\+7\s?\(\d{3}\)\s?\d{3}\s?\d{2}\s?\d{2}$/; // Проверка на формат номера с кодом страны +7 и 10 цифр
         const phoneRegex = /^\d\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/; // Проверка на формат номера с кодом страны +7 и 10 цифр
@@ -42,12 +42,12 @@ const Form_block = ({ setModalType, calculatorData }) => {
         } else {
             setDisabledBtn(true);
         }
-    };
+    }, [formData]);
 
     // Используем useEffect для отслеживания изменений в форме
     useEffect(() => {
         checkFormValidity();
-    }, [formData]); // При изменении данных формы будет проверяться условие
+    }, [checkFormValidity]); // Функция мемоизирована, зависимость корректна
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -147,4 +147,4 @@ const Form_block = ({ setModalType, calculatorData }) => {
     );
 };
 
-export default Form_block;
+export default FormBlock;
