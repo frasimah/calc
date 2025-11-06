@@ -113,7 +113,7 @@ function Calculator() {
     const handleModalToggle = useCallback((modalType) => {
         setIsModalOpen(prev => !prev);
 
-    }, [isModalOpen]);
+    }, []);
 
     const handleModalContent = useCallback((modalType) => {
         setInfoModalContent(modalType)

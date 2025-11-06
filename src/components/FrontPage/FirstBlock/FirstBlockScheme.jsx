@@ -44,7 +44,7 @@ function FirstBlockScheme() {
    useEffect(() => {
       // Функция для добавления класса
       addActiveClassSvg()
-   }, []);
+   }, [addActiveClassSvg]);
 
    // Эффект для вычисления смещения
    useEffect(() => {

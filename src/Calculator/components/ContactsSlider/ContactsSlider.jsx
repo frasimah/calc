@@ -9,11 +9,11 @@ const ContactsSlider = ({ contacts, onContactsChange, isDragging, onThumbMouseDo
    const MIN = CONFIG.SLIDER.MIN;
    const MAX = CONFIG.SLIDER.MAX;
    const STEP = CONFIG.SLIDER.STEP
-   const percent = (((values - MIN) / (MAX - MIN)) * 100).toFixed(3); // Процент от 50000
+   const percent = (((values[0] - MIN) / (MAX - MIN)) * 100).toFixed(3);
 
    useEffect(() => {
       setPercentValue(percent);
-   }, []);
+   }, [percent]);
    return (
       <div className='range_block'>
          <div className="range_block-title">Выберите количество контактов</div>
@@ -25,13 +25,15 @@ const ContactsSlider = ({ contacts, onContactsChange, isDragging, onThumbMouseDo
             values={values}
             className={"slider"}
             onChange={(values) => {
-               setValues(values)
-               setPercentValue(percent);
-               onContactsChange({ target: { value: values } })
+               setValues(values);
+               const newPercent = (((values[0] - MIN) / (MAX - MIN)) * 100).toFixed(3);
+               setPercentValue(newPercent);
+               onContactsChange({ target: { value: values } });
             }}
             onFinalChange={(values) => {
-               setValues(values)
-               setPercentValue(percent);
+               setValues(values);
+               const newPercent = (((values[0] - MIN) / (MAX - MIN)) * 100).toFixed(3);
+               setPercentValue(newPercent);
             }}
             renderTrack={({ props, children }) => (
                <div

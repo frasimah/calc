@@ -40,7 +40,7 @@ function AdvatagesCard({ children, className, animateReady }) {
             });
          }
       });
-   }, [isShowSlider]);
+   }, [isShowSlider, animateReady]);
 
    if (!isClient) return null; // SSR-защита
 
