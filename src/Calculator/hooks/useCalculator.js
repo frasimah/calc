@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { CONFIG } from '../constants';
-import { getConversionRate, getContactProcessingCost, getServicePriceDetails } from '../utils/calculations';
+import { getConversionRate, getServicePrice, getContactProcessingCost } from '../utils/calculations';
 
 export const useCalculator = (serviceType, contacts, averageCheck, techPackageName) => {
 
@@ -23,9 +23,7 @@ export const useCalculator = (serviceType, contacts, averageCheck, techPackageNa
         const packageCost = techPackage.price;
         const discount = techPackage.discount;
 
-        const dataCostDetails = getServicePriceDetails(serviceType, contacts, techPackageName);
-        let dataCost = dataCostDetails.totalCost;
-        const dataPricePerUnit = dataCostDetails.pricePerUnit;
+        let dataCost = getServicePrice(serviceType, contacts, techPackageName);
         let contactProcessingCost = 0;
         let pricePerContact = 0;
         let isTechSubscription = techPackageName === "Tech" || techPackageName === "Call";
@@ -57,7 +55,6 @@ export const useCalculator = (serviceType, contacts, averageCheck, techPackageNa
             totalCostWithPackage,
             contactProcessingCost,
             pricePerContact,
-            dataPricePerUnit,
             isTechSubscription
         };
     }, [serviceType, contacts, averageCheck, techPackageName]);
