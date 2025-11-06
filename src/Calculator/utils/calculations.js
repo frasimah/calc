@@ -1,5 +1,32 @@
 import { CONFIG } from '../constants';
 
+// Определяет плоскую цену за единицу для выбранного объёма
+// Логика:
+// - если объём >= максимального порога, берём цену из последнего порога
+// - если объём <= первого ненулевого порога, берём цену из начального порога (contacts: 0)
+// - иначе берём цену из наибольшего порога, который <= выбранного объёма
+const getUnitPriceForVolume = (pricing, contacts) => {
+    if (!Array.isArray(pricing) || pricing.length === 0) return 0;
+    const sorted = pricing.slice().sort((a, b) => a.contacts - b.contacts);
+    const priceProp = sorted[0].price_per_contact !== undefined ? 'price_per_contact' : 'price_per_call';
+
+    const last = sorted[sorted.length - 1];
+    if (contacts >= last.contacts) return last[priceProp] ?? 0;
+
+    // найти первый ненулевой порог (обычно 1000)
+    const firstNonZeroIdx = sorted.findIndex(t => t.contacts > 0);
+    if (firstNonZeroIdx !== -1 && contacts <= sorted[firstNonZeroIdx].contacts) {
+        return sorted[0][priceProp] ?? 0;
+    }
+
+    for (let i = sorted.length - 1; i >= 0; i--) {
+        if (sorted[i].contacts <= contacts) {
+            return sorted[i][priceProp] ?? 0;
+        }
+    }
+    return sorted[0][priceProp] ?? 0;
+};
+
 export const calculateCostByTiers = (contacts, pricing) => {
     let totalCost = 0;
     let remainingContacts = contacts;
@@ -26,45 +53,41 @@ export const calculateCostByTiers = (contacts, pricing) => {
     return { totalCost, pricePerUnit };
 };
 
-export const getConversionRate = (averageCheck, serviceType) => {
-    const base = CONFIG.CONVERSION?.BASE_BY_SERVICE?.[serviceType];
-    const multipliers = CONFIG.CONVERSION?.MULTIPLIERS || [];
-    if (!base) return 0;
-
-    let multiplier = 0;
-    for (const m of multipliers) {
-        const min = m.min ?? 0;
-        const max = m.max ?? Infinity;
-        if (averageCheck >= min && averageCheck < max) {
-            multiplier = m.multiplier;
-            break;
-        }
-    }
-    return base * (multiplier || 0);
-};
-
 export const getServicePrice = (serviceType, contacts, techPackageName) => {
     const packagePricing = CONFIG.SERVICE_PRICING_BY_PACKAGE?.[techPackageName]?.[serviceType];
     const pricing = packagePricing || CONFIG.SERVICE_PRICING[serviceType];
     if (!pricing) return 0;
-    const { totalCost } = calculateCostByTiers(contacts, pricing);
-    return totalCost;
+    const unitPrice = getUnitPriceForVolume(pricing, contacts);
+    return contacts * unitPrice;
 };
 
-// Возвращает суммарную стоимость и пороговую цену за единицу для текущего объёма
+// Конверсия по типам сервиса и среднему чеку
+export const getConversionRate = (averageCheck, serviceType) => {
+    if (serviceType === 2) return 0.04; // Retargeting Trigger Leads
+    if (serviceType === 3) return 0.03; // Call Center (reactivation/validation)
+
+    // Segment Scoring: конверсия снижается с ростом среднего чека
+    if (averageCheck <= 60000) return 0.03;
+    if (averageCheck <= 150000) return 0.02;
+    if (averageCheck >= 3000000) return 0.005;
+    return 0.01;
+};
+
+// Возвращает суммарную стоимость и выбранную плоскую цену за единицу
 export const getServicePriceDetails = (serviceType, contacts, techPackageName) => {
     const packagePricing = CONFIG.SERVICE_PRICING_BY_PACKAGE?.[techPackageName]?.[serviceType];
     const pricing = packagePricing || CONFIG.SERVICE_PRICING[serviceType];
     if (!pricing) return { totalCost: 0, pricePerUnit: 0 };
-    return calculateCostByTiers(contacts, pricing);
+    const unitPrice = getUnitPriceForVolume(pricing, contacts);
+    return { totalCost: contacts * unitPrice, pricePerUnit: unitPrice };
 };
 
 export const getContactProcessingCost = (contacts) => {
     const pricing = CONFIG.CONTACT_PROCESSING_PRICING;
     if (!pricing) return { totalCost: 0, pricePerContact: 0 };
 
-    const { totalCost, pricePerUnit } = calculateCostByTiers(contacts, pricing);
-    return { totalCost, pricePerContact: pricePerUnit };
+    const unitPrice = getUnitPriceForVolume(pricing, contacts);
+    return { totalCost: contacts * unitPrice, pricePerContact: unitPrice };
 };
 
 export const formatNumber = (num) => num.toLocaleString('ru-RU');
