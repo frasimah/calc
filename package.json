@@ -37,7 +37,7 @@
     "start": "react-scripts start",
     "startStatic": "react-app-rewired start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
+    "postbuild": "node scripts/run-react-snap.js",
     "buildStatic": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
