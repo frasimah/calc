@@ -1,0 +1,474 @@
+@use './scss/reset.scss';
+@use './scss/fonts.scss';
+@use './scss/media.scss';
+@use './scss/custom-grid.scss';
+
+html,
+body {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #323232;
+  font-family: "Onest", sans-serif;
+  background-color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8E8EB;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #353535;
+  border-radius: 10px;
+}
+
+:root {
+  --radial: radial-gradient(113.66% 83.73% at 79.19% 22.8%, #05a6f5 4.21%, #0168C7 26.06%, #034090 44.49%, #01193B 82.21%, #00040D 100%);
+  --dark-gradient: radial-gradient(119.12% 98.18% at 84.5% 0%, #034090 0%, #01193B 60%, #00040D 100%);
+  --dark-blue-gradient-linear: linear-gradient(69deg, #00040D 0%, #01193B 17.79%, #034090 55.51%, #0168C7 73.94%, #05A6F5 95.79%);
+  --orange-gradient-radial: radial-gradient(113.66% 83.73% at 79.19% 22.8%, #964216 4.21%, #5E2A0F 34.1%, #2F1507 59.33%, #140902 84.29%, #00040D 100%);
+  --orange-gradient-linear: linear-gradient(249deg, #00040D 0%, #140902 13.46%, #2F1507 37.5%, #5E2A0F 58.65%, #964216 85.58%);
+  --dark-orange-gradient-linear: linear-gradient(249deg, #5E2A0F 0%, #2F1507 44.5%, #140902 74.31%, #00040D 100%);
+  --purple-radial: radial-gradient(113.66% 83.73% at 79.19% 22.8%, #8BFEB9 4.21%, #7ED9AA 26.06%, #6AB895 44.49%, #579C81 82.21%, #4A846D 100%);
+  --purple-linear: linear-gradient(232deg, #7ED9AA 0%, #6AB895 44.49%, #579C81 82.21%, #4A846D 100%);
+  --puprle-dark-gradient: linear-gradient(232deg, #7ED9AA 0%, #6AB895 44.49%, #579C81 82.21%, #4A846D 100%);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100dvh;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='1900' height='52' viewBox='0 0 1900 52' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='26' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='50' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='74' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='98' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='122' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='146' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='170' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='194' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='218' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='242' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='266' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='290' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='314' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='338' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='362' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='386' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='410' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='434' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='458' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='482' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='506' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='530' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='554' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='578' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='602' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='626' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='650' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='674' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='698' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='722' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='746' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='770' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='794' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='818' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='842' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='866' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='890' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='914' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='938' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='962' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='986' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1010' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1034' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1058' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1082' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1106' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1130' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1154' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1178' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1202' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1226' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1250' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1274' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1298' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1322' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1346' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1370' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1394' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1418' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1442' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1466' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1490' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1514' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1538' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1562' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1586' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1610' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1634' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1658' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1682' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1706' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1730' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1754' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1778' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1802' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1826' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1850' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1874' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1898' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='2' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='26' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='50' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='74' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='98' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='122' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='146' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='170' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='194' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='218' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='242' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='266' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='290' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='314' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='338' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='362' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='386' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='410' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='434' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='458' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='482' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='506' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='530' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='554' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='578' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='602' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='626' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='650' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='674' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='698' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='722' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='746' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='770' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='794' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='818' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='842' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='866' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='890' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='914' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='938' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='962' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='986' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1010' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1034' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1058' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1082' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1106' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1130' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1154' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1178' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1202' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1226' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1250' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1274' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1298' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1322' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1346' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1370' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1394' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1418' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1442' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1466' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1490' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1514' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1538' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1562' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1586' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1610' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1634' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1658' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1682' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1706' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1730' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1754' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1778' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1802' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1826' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1850' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1874' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1898' cy='26' r='2' fill='%23F6F6F6'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 100% auto;
+
+  @include media.mobile {
+    background-image: unset;
+  }
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 120px;
+  padding: 0 clamp(5rem, -7.5rem + 12.5vw, 7.5rem);
+  // 120px > 80px
+  overflow: hidden;
+
+  @include media.desktop {
+    padding: 0 80px;
+    padding: 0 clamp(0.813rem, -20.125rem + 27.917vw, 5rem);
+    // 80px > 13px
+  }
+
+  @include media.tablet {
+    padding: 0 13px;
+  }
+}
+
+.row {
+  --bs-gutter-x: 20px;
+
+  @include media.tablet {
+    --bs-gutter-x: 7px;
+
+
+  }
+}
+
+.front_page {
+  display: flex;
+  flex-direction: column;
+
+  .first_block {
+    margin-top: 0px;
+    padding-top: 130px;
+    padding-top: media.fl(130, 90);
+
+    @include media.desktop {
+      margin-top: 0px;
+      padding-top: 90px;
+    }
+
+    @include media.tablet {
+      margin-top: 0px;
+    }
+  }
+
+  section {
+    margin-top: 120px;
+    margin-top: clamp(6.25rem, 0rem + 6.25vw, 7.5rem);
+    // 120px > 100px
+
+    @include media.desktop {
+      margin-top: 100px;
+    }
+
+    @include media.tablet {
+      margin-top: 30px;
+    }
+  }
+}
+
+.section_title {
+  color: #121212;
+  font-family: "Onest", sans-serif;
+  font-size: 42px;
+  font-size: clamp(2.25rem, 0.375rem + 1.875vw, 2.625rem);
+  // 42px > 36px
+  font-weight: 400;
+  line-height: 48px;
+  line-height: clamp(2.625rem, 0.75rem + 1.875vw, 3rem);
+  // 48px > 42px
+  letter-spacing: -0.84px;
+
+  &.white {
+    color: #fff;
+  }
+
+  @include media.desktop {
+    font-size: 36px;
+    font-size: clamp(1.75rem, -0.75rem + 3.333vw, 2.25rem);
+    // 36px > 28px
+    line-height: normal;
+    letter-spacing: -0.72px;
+  }
+
+  @include media.tablet {
+    font-size: 28px;
+    line-height: normal;
+    letter-spacing: -0.56px;
+  }
+}
+
+.page_title {
+  color: #121212;
+  text-align: center;
+  font-size: 42px;
+  font-size: clamp(2.25rem, 0.375rem + 1.875vw, 2.625rem);
+  // 42px > 36px
+  font-weight: 400;
+  line-height: 48px;
+  line-height: clamp(2.625rem, 0.75rem + 1.875vw, 3rem);
+  // 48px > 42px
+  letter-spacing: -0.84px;
+
+  max-width: 1250px;
+  max-width: clamp(56.25rem, -53.125rem + 109.375vw, 78.125rem);
+  // 1250px > 900px
+
+  @include media.desktop {
+    color: #121212;
+    font-size: 36px;
+    line-height: normal;
+    letter-spacing: -0.72px;
+
+    max-width: 900px;
+  }
+
+  @include media.tablet {
+    color: #121212;
+    font-size: 28px;
+    line-height: normal;
+    letter-spacing: -0.56px;
+  }
+}
+
+.swiper-button-prev {
+  position: unset;
+  transition: .4s;
+  width: 60px;
+  width: clamp(3.125rem, 0rem + 3.125vw, 3.75rem);
+  // 60px > 50px
+  height: 60px;
+  height: clamp(3.125rem, 0rem + 3.125vw, 3.75rem);
+  // 60px > 50px
+  padding: 0;
+  margin: 0;
+
+  @include media.desktop {
+    width: 50px;
+    height: 50px;
+  }
+
+  @include media.tablet {
+    width: 30px;
+    height: 30px;
+  }
+
+  &::after {
+    display: none;
+  }
+
+  @include media.hover {
+    opacity: .6;
+  }
+}
+
+.swiper-button-next {
+  position: unset;
+  transition: .4s;
+  width: 60px;
+  width: clamp(3.125rem, 0rem + 3.125vw, 3.75rem);
+  // 60px > 50px
+  height: 60px;
+  height: clamp(3.125rem, 0rem + 3.125vw, 3.75rem);
+  // 60px > 50px
+  padding: 0;
+  margin: 0;
+
+  @include media.desktop {
+    width: 50px;
+    height: 50px;
+  }
+
+  @include media.tablet {
+    width: 30px;
+    height: 30px;
+  }
+
+  &::after {
+    display: none;
+  }
+
+  @include media.hover {
+    opacity: .6;
+  }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100dvh;
+
+  @include media.mobile {
+    background-color: #fff;
+    z-index: 121;
+    transition: transform .8s cubic-bezier(.15, .2, .1, 1);
+    background-image: url("data:image/svg+xml,%3Csvg width='1900' height='52' viewBox='0 0 1900 52' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='26' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='50' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='74' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='98' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='122' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='146' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='170' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='194' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='218' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='242' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='266' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='290' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='314' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='338' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='362' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='386' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='410' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='434' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='458' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='482' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='506' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='530' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='554' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='578' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='602' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='626' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='650' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='674' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='698' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='722' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='746' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='770' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='794' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='818' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='842' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='866' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='890' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='914' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='938' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='962' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='986' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1010' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1034' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1058' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1082' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1106' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1130' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1154' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1178' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1202' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1226' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1250' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1274' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1298' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1322' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1346' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1370' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1394' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1418' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1442' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1466' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1490' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1514' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1538' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1562' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1586' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1610' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1634' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1658' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1682' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1706' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1730' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1754' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1778' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1802' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1826' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1850' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1874' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1898' cy='2' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='2' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='26' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='50' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='74' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='98' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='122' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='146' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='170' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='194' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='218' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='242' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='266' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='290' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='314' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='338' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='362' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='386' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='410' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='434' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='458' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='482' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='506' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='530' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='554' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='578' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='602' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='626' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='650' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='674' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='698' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='722' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='746' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='770' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='794' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='818' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='842' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='866' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='890' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='914' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='938' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='962' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='986' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1010' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1034' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1058' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1082' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1106' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1130' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1154' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1178' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1202' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1226' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1250' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1274' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1298' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1322' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1346' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1370' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1394' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1418' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1442' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1466' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1490' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1514' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1538' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1562' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1586' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1610' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1634' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1658' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1682' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1706' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1730' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1754' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1778' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1802' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1826' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1850' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1874' cy='26' r='2' fill='%23F6F6F6'/%3E%3Ccircle cx='1898' cy='26' r='2' fill='%23F6F6F6'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200% auto;
+
+    &.active {
+      background-color: #fff;
+      transform: translateX(-60vw) translateZ(0) scale(.85);
+      transition: transform .8s cubic-bezier(.15, .2, .1, 1);
+    }
+
+    &.overflow {
+      overflow: hidden;
+      user-select: none;
+      pointer-events: none;
+      max-height: 100dvh;
+    }
+  }
+}
+
+.loader {
+  display: flex;
+
+  svg {
+
+    @include media.tablet {
+      width: 50px;
+      height: 50px;
+    }
+
+    path {
+      animation: loaderAnimation 1s forwards infinite;
+    }
+
+    .path1 {
+      animation-delay: 0s;
+    }
+
+    .path2 {
+      animation-delay: .125s;
+    }
+
+    .path3 {
+      animation-delay: .250s;
+    }
+
+    .path4 {
+      animation-delay: .375s;
+    }
+
+    .path5 {
+      animation-delay: .500s;
+    }
+
+    .path6 {
+      animation-delay: .625s;
+    }
+
+    .path7 {
+      animation-delay: .750s;
+    }
+
+    .path8 {
+      animation-delay: .875s;
+    }
+
+    @keyframes loaderAnimation {
+      0% {
+        stroke: #006AFE;
+      }
+
+      20% {
+        stroke: #006AFE;
+      }
+
+      80% {
+        stroke: #C9C9C9;
+      }
+
+      100% {
+        stroke: #006AFE;
+      }
+    }
+  }
+
+}
+
+.grecaptcha-badge {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  /* Цвет фона */
+  -webkit-text-fill-color: black !important;
+  /* Цвет текста */
+}
+
+.wrap__mwjDj {
+  z-index: 121 !important;
+}
+
+.btn_top {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 28px;
+  width: 40px;
+  height: 40px;
+  z-index: 5;
+  box-shadow: 0px 0px 20px 1px rgba(18, 18, 18, .3);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: .4s;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include media.mobile {
+    display: flex;
+  }
+
+  @include media.hover {
+    opacity: .7;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.button__VPX41 {
+  width: 58px !important;
+  height: 58px !important;
+}
+
+.landing_page {
+  .container {
+    overflow: visible;
+  }
+
+  .reviews {
+    margin-top: 100px;
+    margin-top: media.fl(100, 80);
+
+    @include media.desktop {
+      margin-top: 80px;
+    }
+
+    @include media.tablet {
+      margin-top: 30px;
+    }
+  }
+
+  .rev_client {
+    margin-top: 120px;
+    margin-top: media.fl(120, 80);
+
+    @include media.desktop {
+      margin-top: 80px;
+    }
+
+    @include media.tablet {
+      margin-top: 30px;
+    }
+  }
+
+  .product_page_need {
+
+    @include media.desktop {
+      margin-top: 80px;
+    }
+
+    @include media.tablet {
+      margin-top: 30px;
+    }
+
+    &_head {
+
+
+      @include media.tablet {
+        justify-content: flex-start;
+        align-items: flex-start;
+        max-width: 50%;
+      }
+
+      @include media.mobile {
+        max-width: 100%;
+      }
+
+      .section_head-title {
+
+        @include media.tablet {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

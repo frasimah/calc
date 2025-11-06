@@ -1,0 +1,54 @@
+@import '../../../scss/media';
+
+.advantages {
+
+   &_wrap {
+      .section_head-icon {
+         animation-name: rotateIcon;
+         animation-duration: 3s;
+         animation-fill-mode: forwards;
+         animation-iteration-count: infinite;
+      }
+   }
+
+   .swiper-slide {
+      display: flex;
+   }
+
+   .advantages_card_item {
+      background: #0168C7;
+      border: unset;
+      position: relative;
+      overflow: hidden;
+
+
+      .advantages_card_item-icon {
+         position: relative;
+         z-index: 1;
+      }
+
+      .typical_text {
+         position: relative;
+         z-index: 1;
+      }
+
+      .circle {
+         display: block;
+         position: absolute;
+         border-radius: 326px;
+         background: #01193B;
+         filter: blur(80px);
+
+         width: calc(100% - 180px);
+         height: calc(100% - 60px);
+         top: 0px;
+         left: 0px;
+
+         @include tablet {
+            width: calc(100% - 70px);
+            height: 100%;
+            filter: blur(70px);
+         }
+      }
+   }
+}

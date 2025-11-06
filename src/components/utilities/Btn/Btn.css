@@ -1,0 +1,85 @@
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  border-radius: 50px;
+  background: #006AFE;
+  padding: 7px 16px;
+  padding: clamp(0.375rem, 0.063rem + 0.313vw, 0.438rem) clamp(0.813rem, -0.125rem + 0.938vw, 1rem);
+  color: #FFF;
+  text-align: center;
+  font-family: "IBM Plex Mono";
+  font-size: 18px;
+  font-size: clamp(0.875rem, -0.375rem + 1.25vw, 1.125rem);
+  font-weight: 400;
+  line-height: 24px;
+  line-height: clamp(1.25rem, 0rem + 1.25vw, 1.5rem);
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.4s;
+}
+@media screen and (max-width: 1599px) {
+  .btn {
+    padding: 6px 13px;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0.24px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .btn {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+}
+.btn .icon {
+  width: 20px;
+  width: clamp(0.938rem, -0.625rem + 1.563vw, 1.25rem);
+  height: 20px;
+  height: clamp(0.938rem, -0.625rem + 1.563vw, 1.25rem);
+}
+@media screen and (max-width: 1599px) {
+  .btn .icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .btn .icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+.btn .icon svg {
+  width: 100%;
+  height: 100%;
+}
+.btn.gray {
+  background: #C9C9C9;
+  color: #121212;
+}
+.btn.light_gray {
+  color: #121212;
+  background: #F5F5F7;
+}
+.btn.white {
+  color: #121212;
+  background: #fff;
+}
+.btn.orange {
+  color: #fff;
+  background: #F26419;
+}
+@media (hover: hover) {
+  .btn:hover {
+    opacity: 0.7;
+  }
+}
+@media (hover: none) {
+  .btn:active {
+    opacity: 0.7;
+  }
+}

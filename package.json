@@ -1,0 +1,102 @@
+{
+  "name": "reffection-app",
+  "version": "0.1.1",
+  "private": true,
+  "homepage": "/",
+  "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.4",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.3.3",
+    "fontfaceobserver": "^2.3.0",
+    "gsap": "^3.12.5",
+    "lottie-web": "^5.12.2",
+    "nanoid": "^5.0.8",
+    "online-3d-viewer": "^0.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-fast-marquee": "^1.6.5",
+    "react-helmet": "^6.1.0",
+    "react-modal": "^3.16.1",
+    "react-number-format": "^5.4.2",
+    "react-player": "^2.16.0",
+    "react-range": "^1.10.0",
+    "react-responsive": "^10.0.0",
+    "react-router-dom": "^6.27.0",
+    "react-router-hash-link": "^2.4.3",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.8.1",
+    "react-snap": "^1.23.0",
+    "sass": "^1.79.5",
+    "swiper": "^11.1.14",
+    "uuid": "^10.0.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "startStatic": "react-app-rewired start",
+    "build": "react-scripts build",
+    "postbuild": "react-snap",
+    "buildStatic": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "reactSnap": {
+    "puppeteer": {
+      "chromePath": ""
+    },
+    "source": "build",
+    "destination": "build",
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "nodeVersion": "20",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "include": [
+      "/privacy",
+      "/privacy-second",
+      "/privacy-third",
+      "/consent",
+      "/consent-second",
+      "/consent-third",
+      "/contacts",
+      "/edtech",
+      "/car-dealers",
+      "/product/segment-scoring",
+      "/product/retargeting-trigger-leads",
+      "/product/call-center",
+      "/404",
+      "/price",
+      "/kitchens"
+    ],
+    "crawl": false
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.6.3",
+    "react-app-rewired": "^2.2.1"
+  }
+}

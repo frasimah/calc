@@ -1,0 +1,154 @@
+@use '../../../scss/media';
+
+.infoblock {
+  margin: 60px 0 0 0;
+
+  @include media.tablet {
+    margin-top: 30px;
+  }
+
+  h1 {
+    color: var(--black, #121212);
+    text-align: center;
+
+    font-size: 42px;
+    font-size: clamp(2.125rem, -0.375rem + 2.5vw, 2.625rem);
+    // 42px > 34px
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+    line-height: clamp(2.5rem, 0rem + 2.5vw, 3rem);
+    // 48px > 40px
+    /* 114.286% */
+    letter-spacing: -0.84px;
+
+    @include media.desktop {
+      font-size: 34px;
+      line-height: 40px;
+    }
+
+    @include media.tablet {
+      font-size: 28px;
+      line-height: 34px;
+      letter-spacing: unset;
+    }
+  }
+
+  h2 {
+    color: #121212;
+    margin-bottom: 20px;
+    margin-bottom: clamp(1rem, -0.25rem + 1.25vw, 1.25rem);
+    // 20px > 16px
+    font-size: 26px;
+    font-size: clamp(1.5rem, 0.875rem + 0.625vw, 1.625rem);
+    // 26px > 24px
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    line-height: clamp(2rem, 1.375rem + 0.625vw, 2.125rem);
+    // 34px > 32px
+    letter-spacing: 0.52px;
+    margin-top: 38px;
+    margin-top: clamp(1.875rem, -0.625rem + 2.5vw, 2.375rem);
+    // 38px > 30px
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include media.desktop {
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: 0.48px;
+      margin-bottom: 16px;
+      margin-top: 30px;
+    }
+
+    @include media.tablet {
+      font-size: 20px;
+      line-height: 26px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      letter-spacing: unset;
+    }
+  }
+
+  p {
+    margin-bottom: 5px;
+
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
+
+    b {
+      font-weight: 600;
+    }
+
+    a {
+      transition: .4s;
+
+      @include media.hover {
+        opacity: .7;
+      }
+    }
+
+    sup {
+      font-size: smaller;
+      /* уменьшает размер шрифта */
+      vertical-align: super;
+      /* поднимает цифру вверх */
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+
+  hr {
+    margin: 40px 0;
+
+    @include media.desktop {
+      margin: 30px 0;
+    }
+
+    @include media.tablet {
+      margin: 20px 0;
+    }
+  }
+
+  &_wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    align-items: center;
+
+    @include media.desktop {
+      row-gap: 40px;
+    }
+
+    @include media.tablet {
+      row-gap: 24px;
+    }
+
+    &_box {
+      width: 100%;
+      max-width: 1396px;
+      padding: 49px;
+      border-radius: 10px;
+      border: 1px solid #E8E8EB;
+      background: #FFF;
+
+      @include media.desktop {
+        padding: 39px;
+        max-width: 1200px;
+      }
+
+      @include media.tablet {
+        max-width: 100%;
+        padding: 29px;
+      }
+
+      @include media.mobile {
+        padding: 19px;
+      }
+    }
+  }
+}

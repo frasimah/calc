@@ -1,0 +1,322 @@
+@use '/src/scss/media';
+
+.results-card {
+   border-radius: 30px;
+   border-radius: media.fl(30, 14);
+   background: rgba(255, 255, 255, 0.20);
+   box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 0.20) inset;
+   backdrop-filter: blur(75px);
+   padding: 30px 40px;
+   padding: 30px media.fl(40, 30);
+
+   @include media.desktop {
+      padding: 30px;
+      border-radius: 14px;
+   }
+
+   @include media.tablet {
+      margin-top: 60px;
+   }
+
+   @include media.mobile {
+      margin-top: 40px;
+      padding: 24px;
+   }
+}
+
+.results-card.placeholder {
+   /* Styles for when no data is available */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+
+.results-header {
+   color: #FFF;
+   font-size: 34px;
+   font-size: media.fl(34, 30);
+   font-weight: 400;
+   line-height: 44px;
+   line-height: media.fl(44, 36);
+   letter-spacing: -0.68px;
+
+   @include media.desktop {
+      font-size: 30px;
+      line-height: 36px;
+      letter-spacing: -0.6px;
+   }
+
+   @include media.tablet {
+      font-size: 22px;
+      line-height: 30px;
+      letter-spacing: -0.44px;
+   }
+
+   @include media.mobile {
+      font-size: 24px;
+      line-height: 30px;
+      letter-spacing: -0.48px;
+   }
+}
+
+.result_wrap {
+   @include media.tablet {
+      display: flex;
+      column-gap: 30px;
+      margin-top: 30px;
+   }
+
+   @include media.mobile {
+      flex-direction: column;
+      margin-top: 24px;
+   }
+}
+
+.results-list {
+   display: flex;
+   flex-direction: column;
+   row-gap: 30px;
+   row-gap: media.fl(30, 24);
+   margin-top: 30px;
+   margin-bottom: 35px;
+   padding-bottom: 35px;
+   border-bottom: 1px solid #FFF;
+
+   @include media.desktop {
+      row-gap: 24px;
+   }
+
+   @include media.tablet {
+      row-gap: 24px;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      border: unset;
+      width: 100%;
+      max-width: 50%;
+      margin-top: 0px;
+   }
+
+   @include media.mobile {
+      row-gap: 16px;
+      border-bottom: 1px solid #FFF;
+      max-width: 100%;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+   }
+}
+
+.result-item {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+   position: relative;
+}
+
+.result-item::before {
+   content: '';
+   width: 10px;
+   width: media.fl(10, 6);
+   height: 28px;
+   height: media.fl(28, 26);
+   background: #FFF;
+   flex-shrink: 0;
+   border-radius: 50px;
+
+   @include media.desktop {
+      height: 26px;
+      width: 6px;
+   }
+
+   @include media.tablet {
+      height: 22px;
+      width: 4px;
+   }
+
+   @include media.mobile {
+      width: 4px;
+      height: 19px;
+   }
+}
+
+.result-text {
+   color: #FFF;
+   font-size: 18px;
+   font-size: media.fl(18, 16);
+   font-weight: 400;
+   line-height: 26px;
+   line-height: media.fl(26, 24);
+   letter-spacing: 0.36px;
+
+   @include media.desktop {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.32px;
+   }
+
+   @include media.tablet {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.32px;
+   }
+
+   @include media.mobile {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.28px;
+   }
+}
+
+.result_wrap_budget {
+   @include media.tablet {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 50%;
+   }
+
+   @include media.mobile {
+      max-width: 100%;
+   }
+}
+
+// Секция с бюджетом
+.budget-section {
+   display: flex;
+   flex-direction: column;
+   row-gap: 12px;
+
+   border-radius: 14px;
+   border-radius: media.fl(14, 10);
+   background: #FFF;
+   padding: 20px;
+
+   @include media.desktop {
+      border-radius: 10px;
+   }
+
+   @include media.tablet {
+      flex: 1 1 auto;
+   }
+
+   @include media.mobile {
+      padding: 16px;
+      flex: unset;
+   }
+}
+
+.budget-label {
+   color: #121212;
+   font-size: 20px;
+   font-size: media.fl(20, 18);
+   font-weight: 400;
+   line-height: 30px;
+   line-height: media.fl(30, 26);
+   letter-spacing: 0.4px;
+
+   @include media.desktop {
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0.36px;
+   }
+
+   @include media.mobile {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.28px;
+   }
+}
+
+.budget-value {
+   color: #121212;
+   font-size: 34px;
+   font-size: media.fl(34, 30);
+   font-weight: 400;
+   line-height: 44px;
+   line-height: media.fl(44, 36);
+   letter-spacing: -0.68px;
+
+   @include media.desktop {
+      font-size: 30px;
+      line-height: 36px;
+      letter-spacing: -0.6px;
+   }
+
+   @include media.mobile {
+      font-size: 20px;
+      line-height: 26px;
+      letter-spacing: -0.4px;
+   }
+}
+
+.submit-button {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   padding: 7px 20px;
+   padding: media.fl(7, 5) 20px;
+   margin-top: 30px;
+   width: 100%;
+
+   border-radius: 50px;
+   background: #FFF;
+
+   color: #121212;
+   font-family: "IBM Plex Mono";
+   font-size: 18px;
+   font-size: media.fl(18, 14);
+   font-weight: 400;
+   line-height: 24px;
+   line-height: media.fl(24, 20);
+   letter-spacing: 0.36px;
+   text-transform: uppercase;
+   cursor: pointer;
+
+   transition: .4s;
+
+   @include media.desktop {
+      padding: 5px 20px;
+
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0.28px;
+   }
+
+   @include media.tablet {
+      margin-top: 20px;
+   }
+
+   @include media.mobile {
+      margin-top: 24px;
+   }
+
+   @include media.hover {
+      opacity: .7;
+   }
+
+   &:active {
+      transform: scale(0.98);
+   }
+}
+
+.submit-text {
+   color: #121212;
+   text-align: center;
+   font-family: "IBM Plex Mono";
+   font-size: 18px;
+   font-size: media.fl(18, 14);
+   font-weight: 400;
+   line-height: 24px;
+   line-height: media.fl(24, 20);
+   letter-spacing: 0.36px;
+   text-transform: uppercase;
+
+   @include media.desktop {
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0.28px;
+   }
+
+}

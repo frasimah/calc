@@ -1,0 +1,121 @@
+@import '../../../../../scss/media';
+
+.source_left_icon {
+
+   svg {
+      animation-name: opacityNoActive;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease;
+
+      &.active {
+         animation-name: unset
+      }
+
+      .all_group {
+
+         animation-name: unset;
+
+         &.active {
+
+            .elem-1,
+            .elem-2,
+            .line-2,
+            .svg_text {
+               animation-name: animateScaleX;
+               animation-duration: 1s;
+               animation-fill-mode: forwards;
+               animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            }
+
+            .line-1,
+            .line-3 {
+               animation-name: animateScaleY;
+               animation-duration: 1s;
+               animation-fill-mode: forwards;
+               animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            }
+         }
+
+         .elem-1,
+         .elem-2,
+         .line-1,
+         .line-2,
+         .svg_text {
+            transform-box: border-box;
+            transform: scaleX(0);
+         }
+
+         .line-3 {
+            transform-box: border-box;
+            transform: scaleY(0);
+         }
+
+         .elem-1 {
+            transform-origin: 50% 50%;
+            animation-delay: .55s;
+         }
+
+         .elem-2 {
+            transform-origin: 50% 50%;
+            animation-delay: 1.35s;
+         }
+
+         .line-1 {
+            transform-origin: 0% 100%;
+            animation-delay: 0s;
+         }
+
+         .line-2 {
+            transform-origin: 0% 0%;
+            animation-delay: .8s;
+         }
+
+         .line-3 {
+            transform-origin: 100% 0%;
+            animation-delay: 1.7s;
+         }
+
+         .svg_text {
+            transform-origin: 0% 0%;
+            animation-delay: 1.35s;
+         }
+      }
+
+
+   }
+
+   @keyframes animateScaleX {
+      0% {
+         transform: scaleX(0);
+         opacity: 0;
+      }
+
+      100% {
+         transform: scaleX(1);
+         opacity: 1;
+      }
+   }
+
+   @keyframes animateScaleY {
+      0% {
+         transform: scaleY(0);
+         opacity: 0;
+      }
+
+      100% {
+         transform: scaleY(1);
+         opacity: 1;
+      }
+   }
+
+   @keyframes opacityNoActive {
+      0% {
+         opacity: 1;
+      }
+
+      100% {
+         opacity: 0;
+      }
+   }
+}

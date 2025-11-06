@@ -1,0 +1,213 @@
+@use '../../../scss/media'as *;
+
+.services_page_packages {
+   margin-top: fl(120, 80);
+
+   @include desktop {
+      margin-top: 80px;
+   }
+
+   @include tablet {
+      margin-top: 40px;
+   }
+
+   &-title {
+      margin-bottom: fl(50, 30);
+
+      color: #121212;
+      font-size: fl(34, 26);
+      font-weight: 400;
+      line-height: fl(44, 36);
+      letter-spacing: -0.68px;
+
+      @include desktop {
+         margin-bottom: 30px;
+
+         font-size: 26px;
+         line-height: 36px;
+         letter-spacing: -0.52px;
+      }
+
+      @include tablet {
+         margin-bottom: 20px;
+
+         font-size: 20px;
+         line-height: 26px;
+         letter-spacing: -0.4px;
+      }
+   }
+
+   &-sw {
+      display: flex;
+      max-width: 100%;
+      min-width: 0px;
+      margin: 0;
+
+      @include tablet {
+         overflow: visible;
+      }
+   }
+
+   &_item {
+      display: flex;
+      flex-direction: column;
+      padding: fl(40, 30);
+      border-radius: 10px;
+      border: 1px solid #E8E8EB;
+      background: #FFF;
+      position: relative;
+      height: auto;
+
+      @include desktop {
+         padding: 30px;
+      }
+
+      @include tablet {
+         padding: 20px;
+         max-width: 40.5%;
+      }
+
+      @include mobile {
+         max-width: 86%;
+      }
+
+      &-icon {
+         display: flex;
+         width: fl(60, 50);
+         height: fl(60, 50);
+         flex-shrink: 0;
+
+         @include desktop {
+            width: 50px;
+            height: 50px;
+         }
+
+         @include tablet {
+            width: 40px;
+            height: 40px;
+         }
+
+         svg {
+            width: 100%;
+            height: 100%;
+         }
+      }
+
+      &-title {
+         margin-top: 30px;
+
+         color: #121212;
+         font-size: fl(26, 20);
+         font-weight: 400;
+         line-height: fl(34, 28);
+         letter-spacing: 0.52px;
+
+         @include desktop {
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: -0.4px;
+         }
+
+         @include tablet {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.32px;
+         }
+      }
+
+      &-text {
+         margin-top: 16px;
+
+         color: #121212;
+         font-size: fl(20, 16);
+         font-weight: 400;
+         line-height: fl(30, 24);
+         letter-spacing: 0.4px;
+
+         @include desktop {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.32px;
+         }
+
+         @include tablet {
+            margin-top: 7px;
+
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 0.28px;
+         }
+      }
+
+      &-btn {
+         margin-top: 30px;
+         flex: 1 1 auto;
+         display: flex;
+         align-items: flex-end;
+
+         &-el {
+
+            .icon {
+               display: flex;
+               width: 14px;
+               height: 14px;
+               transform: translateY(-1px);
+
+               flex-shrink: 0;
+
+               @include tablet {
+                  width: 10px;
+                  height: 10px;
+               }
+
+               svg {
+                  width: 100%;
+                  height: 100%;
+               }
+            }
+         }
+      }
+
+      &-cost {
+         display: inline-flex;
+         justify-content: center;
+         align-items: center;
+         padding: 0 fl(16, 15);
+         height: fl(38, 28);
+         border-radius: 50px;
+         background: #006AFE;
+
+         color: #FFF;
+         text-align: center;
+         font-family: "IBM Plex Mono";
+         font-size: fl(18, 14);
+         font-weight: 400;
+         line-height: fl(24, 20);
+         letter-spacing: 0.36px;
+         text-transform: uppercase;
+
+         position: absolute;
+         top: 20px;
+         right: 20px;
+
+         @include desktop {
+            padding: 0 15px;
+            height: 28px;
+
+            font-size: 14px;
+            line-height: normal;
+            letter-spacing: 0.28px;
+         }
+
+         @include tablet {
+            padding: 0 12px;
+            height: 26px;
+            top: 10px;
+            right: 10px;
+
+            font-size: 12px;
+            letter-spacing: 0.24px;
+         }
+      }
+   }
+}

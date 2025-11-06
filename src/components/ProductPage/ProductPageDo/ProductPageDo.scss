@@ -1,0 +1,73 @@
+@use '../../../scss/media';
+
+.product_page_do {
+   display: flex;
+   flex-direction: column;
+   margin-top: 100px;
+   margin-top: media.fl(100, 80);
+
+   @include media.desktop {
+      margin-top: 80px;
+   }
+
+   @include media.tablet {
+      margin-top: 50px;
+   }
+
+   @include media.mobile {
+      margin-top: 40px;
+   }
+
+   &_top {
+      position: relative;
+      z-index: 4;
+
+      .benefits {
+
+         @include media.mobile {
+            row-gap: 6px;
+         }
+
+         &_item {
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.20);
+            box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 0.50) inset;
+            backdrop-filter: blur(25px);
+            border: unset;
+            align-items: center;
+
+            @include media.desktop {
+               padding: 30px 40px;
+               flex-direction: row;
+               column-gap: 40px;
+            }
+
+            @include media.tablet {
+               padding: 20px;
+               column-gap: 20px;
+            }
+
+            .typical_text {
+               @include media.desktop {
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 24px;
+                  letter-spacing: 0.32px;
+               }
+
+               @include media.tablet {
+                  font-size: 12px;
+                  line-height: 18px;
+                  letter-spacing: 0.24px;
+               }
+
+               @include media.mobile {
+                  font-size: 14px;
+                  line-height: 20px;
+                  letter-spacing: 0.28px;
+               }
+            }
+         }
+      }
+   }
+}

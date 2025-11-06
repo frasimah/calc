@@ -1,0 +1,55 @@
+.arsenal_card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+@media screen and (max-width: 1599px) {
+  .arsenal_card {
+    row-gap: 40px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .arsenal_card {
+    display: block;
+  }
+}
+.arsenal_card .icon_line {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+}
+.arsenal_card .icon_line svg {
+  max-width: 1220px;
+  max-width: clamp(62.125rem, -8.5rem + 70.625vw, 76.25rem);
+  width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 1599px) {
+  .arsenal_card .icon_line svg {
+    max-width: 994px;
+  }
+}
+.arsenal .section_head-icon svg .star {
+  animation: flashStar 1.5s linear forwards infinite;
+}
+.arsenal .section_head-icon svg .star-el1 {
+  animation-delay: 0.4s;
+}
+.arsenal .section_head-icon svg .star-el2 {
+  animation-delay: 0.1s;
+}
+.arsenal .section_head-icon svg .star-el3 {
+  animation-delay: 0.8s;
+}
+@keyframes flashStar {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

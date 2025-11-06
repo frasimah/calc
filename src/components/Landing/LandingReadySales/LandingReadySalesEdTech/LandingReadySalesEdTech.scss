@@ -1,0 +1,37 @@
+.landing_sales {
+
+   &.orange {
+      .landing_sales_wrap {
+         background: var(--orange-gradient-radial);
+      }
+   }
+
+   &.kitchens {
+      .landing_sales_wrap {
+         background: radial-gradient(187.51% 101.04% at 92.17% 8.61%, #F0ECB1 4.21%, #DEA05E 34.1%, #98542F 59.33%, #694026 84.29%, #592A0F 100%);
+
+      }
+   }
+
+
+
+   &_wrap {
+      background: var(--purple-radial);
+
+      &-left_icon {
+         position: absolute;
+         top: 0;
+         left: 0;
+         user-select: none;
+         pointer-events: none;
+      }
+
+      &-right_icon {
+         position: absolute;
+         right: 0;
+         bottom: 0;
+         user-select: none;
+         pointer-events: none;
+      }
+   }
+}

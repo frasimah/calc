@@ -1,0 +1,300 @@
+@use '../../../scss/media';
+
+.product_page_work {
+   padding: 120px 0;
+   padding: media.fl(120, 80) 0;
+   position: relative;
+   margin-top: 120px;
+   margin-top: media.fl(120, 80);
+
+   .container {
+      overflow: visible;
+   }
+
+   @include media.desktop {
+      padding: 80px 0;
+      margin-top: 80px;
+   }
+
+   @include media.tablet {
+      margin-top: 60px;
+      padding: 30px 0;
+   }
+
+   @include media.mobile {
+      margin-top: 30px;
+   }
+
+   &::before {
+      content: '';
+      display: block;
+      width: calc(100vw + 2px);
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--radial);
+      z-index: 1;
+      user-select: none;
+      pointer-events: none;
+   }
+
+   &_wrap {
+      position: relative;
+      z-index: 1;
+      clip-path: inset(0px -60px 0px -60px);
+
+      &_slider {
+         &_sw {
+
+            @media screen and (max-width:1400px) {
+               overflow: visible;
+            }
+
+            &_item {
+               display: flex;
+               flex-direction: column;
+               border-radius: 10px;
+               background: rgba(255, 255, 255, 0.20);
+               box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 0.50) inset;
+               backdrop-filter: blur(25px);
+               height: auto;
+
+               @media screen and (max-width:1400px) {
+                  max-width: 305px;
+               }
+
+               @include media.tablet {
+                  max-width: 326px;
+               }
+
+               &_top {
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 40px;
+                  row-gap: media.fl(40, 30);
+                  padding: 30px 40px;
+                  position: relative;
+
+                  margin-bottom: 40px;
+                  margin-bottom: media.fl(40, 16);
+                  padding-bottom: 30px;
+                  padding-bottom: media.fl(30, 16);
+
+                  &::after {
+                     content: '';
+                     display: block;
+                     width: calc(100% - 80px);
+                     height: 1px;
+                     position: absolute;
+                     bottom: 0;
+                     left: 50%;
+                     transform: translateX(-50%);
+                     background: #FFF;
+
+                     @include media.tablet {
+                        width: calc(100% - 40px);
+                     }
+                  }
+
+
+
+                  @include media.desktop {
+                     padding: 40px;
+                     row-gap: 30px;
+                     margin-top: 16px;
+                     padding-top: 16px;
+                  }
+
+                  @include media.tablet {
+                     padding: 20px;
+                     row-gap: 20px;
+                     padding-bottom: 30px;
+                     margin-bottom: 30px;
+                  }
+
+                  &-num {
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     width: 60px;
+                     width: media.fl(60, 50);
+                     height: 60px;
+                     height: media.fl(60, 50);
+                     border-radius: 12px;
+                     border: 1px solid #FFF;
+
+                     color: #FFF;
+                     text-align: center;
+                     font-size: 26px;
+                     font-size: media.fl(26, 20);
+                     font-weight: 400;
+                     line-height: 34px;
+                     line-height: media.fl(34, 28);
+                     letter-spacing: 0.52px;
+
+                     @include media.desktop {
+                        width: 50px;
+                        height: 50px;
+
+                        font-size: 20px;
+                        line-height: 28px;
+                        letter-spacing: 0.4px;
+                     }
+
+                     @include media.tablet {
+                        width: 40px;
+                        height: 40px;
+                     }
+                  }
+
+                  &-title {
+                     color: #FFF;
+                     font-size: 26px;
+                     font-size: media.fl(26, 20);
+                     font-weight: 400;
+                     line-height: 34px;
+                     line-height: media.fl(34, 28);
+                     letter-spacing: 0.52px;
+
+                     @include media.desktop {
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 28px;
+                        letter-spacing: 0.4px;
+                     }
+                  }
+               }
+
+               &_body {
+                  padding: 0 20px 30px 40px;
+
+                  @include media.desktop {
+                     padding: 0 20px 40px 40px;
+                  }
+
+                  @include media.tablet {
+                     padding: 0 10px 20px 20px;
+                  }
+
+                  &-text {
+                     color: #FFF;
+                     font-size: 20px;
+                     font-size: media.fl(20, 16);
+                     font-weight: 400;
+                     line-height: 30px;
+                     line-height: media.fl(30, 24);
+                     letter-spacing: 0.4px;
+                     overflow-y: auto;
+
+                     padding-right: 20px;
+
+                     max-height: 408px;
+                     max-height: media.fl(408, 400);
+
+
+                     &::-webkit-scrollbar {
+                        width: 4px;
+                     }
+
+                     &::-webkit-scrollbar-track {
+                        background: #8C9CB4;
+                     }
+
+                     &::-webkit-scrollbar-thumb {
+                        background: #FFF;
+                     }
+
+                     @include media.desktop {
+                        font-size: 16px;
+                        line-height: 24px;
+                        letter-spacing: 0.32px;
+                        max-height: 400px;
+                     }
+
+                     @include media.mobile {
+                        font-size: 14px;
+                        line-height: 20px;
+                        letter-spacing: 0.28px;
+
+                        padding-right: 10px;
+                        max-height: 320px;
+                     }
+
+                     >* {
+                        &:first-child {
+                           margin-top: 0px;
+                        }
+
+                        &:last-child {
+                           margin-bottom: 0px;
+                        }
+                     }
+
+                     p {
+                        margin: 20px 0;
+                     }
+
+                     ul {
+                        list-style-type: disc;
+                        padding-left: 25px;
+                        margin-top: -10px;
+                     }
+                  }
+
+                  &-btn {
+                     margin-top: 40px;
+                     margin-top: media.fl(40, 30);
+                     display: flex;
+                     justify-content: center;
+                     width: 100%;
+
+                     @include media.desktop {
+                        margin-top: 30px;
+                     }
+
+                     @include media.tablet {
+                        margin-top: 20px;
+                     }
+
+                     .btn {
+                        width: 100%;
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      &-circle {
+         position: absolute;
+         top: -35px;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 1132px;
+         width: media.fl(1132, 984);
+         max-width: 100%;
+         height: 772px;
+         height: media.fl(772, 671);
+         ;
+         user-select: none;
+         pointer-events: none;
+
+         @include media.desktop {
+            top: -10px;
+            width: 984px;
+            height: 671px;
+         }
+
+         @include media.tablet {
+            display: none;
+         }
+
+         svg {
+            width: 100%;
+            height: 100%;
+         }
+      }
+   }
+}

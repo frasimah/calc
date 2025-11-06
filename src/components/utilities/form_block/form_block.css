@@ -1,0 +1,355 @@
+.remodal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: clamp(56.25rem, -10.938rem + 67.188vw, 69.688rem);
+  background: #fff;
+  border-radius: 10px;
+  max-height: 100%;
+  position: relative;
+  padding: 50px;
+  padding: clamp(2.5rem, -0.625rem + 3.125vw, 3.125rem);
+  overflow: hidden;
+  padding-right: 15px;
+}
+@media screen and (max-width: 1599px) {
+  .remodal {
+    max-width: 900px;
+    padding: 40px;
+    padding-right: 15px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .remodal {
+    padding: 30px;
+    padding-right: 10px;
+  }
+}
+.remodal_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-right: 35px;
+  overflow-y: auto;
+}
+@media screen and (max-width: 1599px) {
+  .remodal_wrap {
+    padding-right: 25px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .remodal_wrap {
+    padding-right: 10px;
+  }
+}
+.remodal .close-modal {
+  position: absolute;
+  background: #F5F5F7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 30px;
+  top: clamp(1.563rem, 0rem + 1.563vw, 1.875rem);
+  right: 30px;
+  right: clamp(1.563rem, 0rem + 1.563vw, 1.875rem);
+  width: 38px;
+  width: clamp(1.875rem, -0.625rem + 2.5vw, 2.375rem);
+  height: 38px;
+  height: clamp(1.875rem, -0.625rem + 2.5vw, 2.375rem);
+  cursor: pointer;
+  transition: 0.4s;
+}
+@media (hover: hover) {
+  .remodal .close-modal:hover {
+    opacity: 0.7;
+  }
+}
+@media (hover: none) {
+  .remodal .close-modal:active {
+    opacity: 0.7;
+  }
+}
+@media screen and (max-width: 1599px) {
+  .remodal .close-modal {
+    top: 25px;
+    right: 25px;
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .remodal .close-modal {
+    top: 20px;
+  }
+}
+.remodal .icon {
+  margin-bottom: 30px;
+  margin-bottom: clamp(1.25rem, -1.875rem + 3.125vw, 1.875rem);
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  width: clamp(2.5rem, -0.625rem + 3.125vw, 3.125rem);
+  height: 50px;
+  height: clamp(2.5rem, -0.625rem + 3.125vw, 3.125rem);
+}
+@media screen and (max-width: 1599px) {
+  .remodal .icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .remodal .icon {
+    margin-bottom: 20px;
+  }
+}
+.remodal .icon svg {
+  width: 100%;
+  height: 100%;
+}
+.remodal .title_block {
+  width: 100%;
+  max-width: 540px;
+  max-width: clamp(28.125rem, 0rem + 28.125vw, 33.75rem);
+  color: #121212;
+  text-align: center;
+  font-size: 26px;
+  font-size: clamp(1.25rem, -0.625rem + 1.875vw, 1.625rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  line-height: clamp(1.625rem, -0.875rem + 2.5vw, 2.125rem);
+  letter-spacing: 0.52px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 1599px) {
+  .remodal .title_block {
+    font-size: 20px;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    max-width: 450px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .remodal .title_block {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.36px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .remodal .title_block {
+    color: #121212;
+    font-size: 28px;
+    line-height: normal;
+    letter-spacing: -0.56px;
+    margin-bottom: 16px;
+  }
+}
+.remodal .loader {
+  margin: 40px 0;
+  margin: clamp(1.875rem, -1.25rem + 3.125vw, 2.5rem) 0;
+}
+@media screen and (max-width: 1599px) {
+  .remodal .loader {
+    margin: 30px 0;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .remodal .loader {
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 1599px) {
+  .remodal .loader svg {
+    width: 50px;
+    height: 50px;
+  }
+}
+.remodal .descr {
+  width: 100%;
+  max-width: 540px;
+  max-width: clamp(28.125rem, 0rem + 28.125vw, 33.75rem);
+  color: #121212;
+  text-align: center;
+  font-size: 16px;
+  font-size: clamp(0.875rem, 0.25rem + 0.625vw, 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  line-height: clamp(1.375rem, 0.75rem + 0.625vw, 1.5rem);
+  letter-spacing: 0.32px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (max-width: 1599px) {
+  .remodal .descr {
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 450px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .remodal .descr {
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0.36px;
+  }
+}
+.remodal form {
+  width: 100%;
+  max-width: 540px;
+  max-width: clamp(28.125rem, 0rem + 28.125vw, 33.75rem);
+  margin-top: 30px;
+  margin-top: clamp(1.25rem, -1.875rem + 3.125vw, 1.875rem);
+}
+@media screen and (max-width: 1599px) {
+  .remodal form {
+    max-width: 450px;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .remodal form {
+    margin-top: 30px;
+  }
+}
+.remodal form .btn_sub {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-top: clamp(1.25rem, -1.875rem + 3.125vw, 1.875rem);
+}
+@media screen and (max-width: 1599px) {
+  .remodal form .btn_sub {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .remodal form .btn_sub {
+    margin-top: 30px;
+  }
+}
+.remodal form .btn_sub-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 16px;
+  border-radius: 50px;
+  background: #006AFE;
+  margin-left: auto;
+  margin-right: auto;
+  color: #FFF;
+  text-align: center;
+  font-family: "IBM Plex Mono";
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.4s;
+}
+@media (hover: hover) {
+  .remodal form .btn_sub-btn:hover {
+    opacity: 0.7;
+  }
+}
+@media (hover: none) {
+  .remodal form .btn_sub-btn:active {
+    opacity: 0.7;
+  }
+}
+.remodal form .item {
+  margin-bottom: 10px;
+  height: 58px;
+}
+.remodal form .item input {
+  padding: 0 20px;
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid #E8E8EB;
+  background: #FFF;
+  color: #121212;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+}
+.remodal form .modal_check {
+  margin-top: 18px;
+}
+@media screen and (max-width: 1199px) {
+  .remodal form .modal_check {
+    margin-top: 16px;
+  }
+}
+.remodal form .modal_check input {
+  display: none;
+}
+.remodal form .modal_check input:checked + label:before {
+  border-color: #006AFE;
+  background-color: #006AFE;
+}
+.remodal form .modal_check label {
+  color: #121212;
+  font-size: 16px;
+  font-size: clamp(0.875rem, 0.25rem + 0.625vw, 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: clamp(1.375rem, 0.75rem + 0.625vw, 1.5rem);
+  letter-spacing: 0.32px;
+  display: inline-block;
+  gap: 10px;
+  cursor: pointer;
+}
+.remodal form .modal_check label a {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: #006AFE;
+  line-height: inherit;
+  letter-spacing: inherit;
+  transition: 0.4s;
+}
+@media (hover: hover) {
+  .remodal form .modal_check label a:hover {
+    opacity: 0.7;
+  }
+}
+@media (hover: none) {
+  .remodal form .modal_check label a:active {
+    opacity: 0.7;
+  }
+}
+@media screen and (max-width: 1599px) {
+  .remodal form .modal_check label {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .remodal form .modal_check label {
+    font-size: 16px;
+  }
+}
+.remodal form .modal_check label:before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  min-width: 14px;
+  height: 14px;
+  background: transparent;
+  transition: 0.4s;
+  border: 1px solid var(--black, #121212);
+  border-radius: 4px;
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-position: center center;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}

@@ -1,0 +1,247 @@
+@import '../../../scss/media';
+
+.preloader {
+   z-index: 5060;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100dvh;
+   pointer-events: none;
+
+
+   // animation-name: stay;
+   // animation-duration: .7s;
+   // animation-delay: 0s;
+   // animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+   // animation-iteration-count: 1;
+   // animation-direction: normal;
+   // animation-fill-mode: both;
+
+   .init.fadeIn .preloader-bg {
+      animation-duration: .7s;
+   }
+
+   .init.fadeIn .preloader-logo {
+      animation-duration: .3s;
+   }
+
+   &-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--radial);
+
+      @include mobile {
+         background: var(--radial);
+      }
+
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 101%;
+         height: 100%;
+         background-color: #FFF;
+         transform-origin: 100% 0;
+      }
+   }
+
+   &.fadeIn {
+
+      &.init {
+         .preloader-bg {
+            animation-name: page-overlay-out;
+            animation-duration: .7s;
+            animation-delay: 1.2s;
+            animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: both;
+
+            &::before {
+               transform: scale(0);
+               animation-name: page-overlay-moment-out;
+               animation-duration: .7s;
+               animation-delay: .3s;
+               animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+               animation-iteration-count: 1;
+               animation-direction: normal;
+               animation-fill-mode: both;
+            }
+         }
+
+         .preloader-logo {
+            animation-name: menuShrink;
+            animation-duration: .3s;
+            animation-delay: 1.2s;
+            animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: both;
+         }
+      }
+
+      .preloader-bg {
+         animation-name: page-overlay-out;
+         animation-duration: .7s;
+         animation-delay: 0s;
+         animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+         animation-iteration-count: 1;
+         animation-direction: normal;
+         animation-fill-mode: both;
+
+         &::before {
+            transform: scale(0);
+         }
+      }
+
+      .preloader-logo {
+         animation-name: menuShrink;
+         animation-duration: .3s;
+         animation-delay: 0s;
+         animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+         animation-iteration-count: 1;
+         animation-direction: normal;
+         animation-fill-mode: both;
+      }
+
+   }
+
+   &.fadeOut {
+
+      .preloader-bg {
+         animation-name: page-overlay-in;
+         animation-duration: .7s;
+         animation-delay: 0s;
+         animation-timing-function: cubic-bezier(.04, .93, .02, .98);
+         animation-iteration-count: 1;
+         animation-direction: normal;
+         animation-fill-mode: both;
+
+         &::before {
+            animation-name: page-overlay-moment-in;
+            animation-duration: .7s;
+            animation-delay: 0s;
+            animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: both;
+         }
+      }
+
+      .preloader-logo {
+         animation-name: menuExpand;
+         animation-duration: .7s;
+         animation-delay: .1s;
+         animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+         animation-iteration-count: 1;
+         animation-direction: normal;
+         animation-fill-mode: both;
+      }
+
+   }
+
+   &-logo {
+      z-index: 1;
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+         width: 250px;
+         height: auto;
+
+         @include tablet {
+            width: 150px;
+         }
+      }
+   }
+
+   &.isHash {
+      user-select: none;
+      pointer-events: none;
+   }
+
+   @keyframes page-overlay-out {
+      0% {
+         transform-origin: 100% 0;
+         transform: translate(0);
+      }
+
+      100% {
+         transform-origin: 100% 0;
+         transform: translate(100%);
+      }
+   }
+
+   @keyframes page-overlay-in {
+      0% {
+         transform: translate(-100%);
+      }
+
+      100% {
+         transform: translate(0);
+      }
+   }
+
+   @keyframes page-overlay-moment-in {
+      0% {
+         transform-origin: 100% 0;
+         transform: scaleX(1);
+      }
+
+      100% {
+         transform-origin: 100% 0;
+         transform: scaleX(0);
+      }
+   }
+
+   @keyframes page-overlay-moment-out {
+      0% {
+         transform-origin: 0 100%;
+         transform: scaleX(1);
+      }
+
+      100% {
+         transform-origin: 0 100%;
+         transform: scaleX(0);
+      }
+   }
+
+   @keyframes menuShrink {
+      0% {
+         transform: translateX(0);
+         transform-origin: bottom;
+         opacity: 1;
+      }
+
+      100% {
+         transform: translateX(60px);
+         transform-origin: bottom;
+         opacity: 0;
+      }
+   }
+
+   @keyframes menuExpand {
+      0% {
+         transform: translateX(-60px);
+         transform-origin: bottom;
+         opacity: 0;
+      }
+
+      100% {
+         transform: translateX(0);
+         transform-origin: bottom;
+         opacity: 1;
+      }
+   }
+
+
+}

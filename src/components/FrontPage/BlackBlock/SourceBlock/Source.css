@@ -1,0 +1,417 @@
+@charset "UTF-8";
+.source_list {
+  row-gap: 20px;
+}
+@media screen and (max-width: 1199px) {
+  .source_list {
+    row-gap: 10px;
+  }
+}
+.source_list .col-md-6 {
+  overflow: hidden;
+}
+.source_list_item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px 49px 20px 49px;
+  padding-top: clamp(2.438rem, -1rem + 3.438vw, 3.125rem);
+  padding-right: clamp(2.438rem, -0.688rem + 3.125vw, 3.063rem);
+  padding-left: clamp(2.438rem, -0.688rem + 3.125vw, 3.063rem);
+  border-radius: 10px;
+  background: #252525;
+  height: 100%;
+  min-height: 540px;
+  min-height: clamp(23.75rem, -26.25rem + 50vw, 33.75rem);
+  row-gap: 20px;
+  background-clip: padding-box;
+  /* !importanté */
+  border: solid 1px transparent;
+  /* !importanté */
+  border-radius: 1em;
+}
+.source_list_item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -1px;
+  /* !importanté */
+  border-radius: inherit;
+  /* !importanté */
+  background: linear-gradient(to bottom, #5E5E5E 0%, #353535 100%);
+}
+@media screen and (max-width: 1599px) {
+  .source_list_item {
+    padding: 39px 39px 20px 39px;
+    min-height: 380px;
+    row-gap: 40px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .source_list_item {
+    row-gap: 20px;
+    padding: 19px;
+    min-height: 320px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .source_list_item {
+    min-height: unset;
+    height: auto;
+  }
+}
+.source_list_item_head {
+  padding: 0 50px;
+  padding: 0 clamp(0rem, -15.625rem + 15.625vw, 3.125rem);
+}
+@media screen and (max-width: 1599px) {
+  .source_list_item_head {
+    padding: 0px;
+  }
+}
+.source_list_item_head-title {
+  color: #FFF;
+  text-align: center;
+  font-size: 26px;
+  font-size: clamp(1.25rem, -0.625rem + 1.875vw, 1.625rem);
+  font-weight: 400;
+  line-height: 34px;
+  line-height: clamp(1.75rem, -0.125rem + 1.875vw, 2.125rem);
+  letter-spacing: 0.52px;
+}
+@media screen and (max-width: 1599px) {
+  .source_list_item_head-title {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.4px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .source_list_item_head-title {
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0.36px;
+  }
+}
+.source_list_item_head-text {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+@media screen and (max-width: 1199px) {
+  .source_list_item_head-text {
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .source_list_item.item_first {
+    row-gap: 40px;
+  }
+}
+.source_list_item.item_first .icon svg .svg-elem-1 {
+  stroke-dashoffset: 430.1910095215px;
+  stroke-dasharray: 430.1910095215px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-1 {
+  stroke-dashoffset: 860.382019043px;
+  fill: rgb(46, 46, 46);
+}
+.source_list_item.item_first .icon svg .svg-elem-2 {
+  stroke-dashoffset: 430.1910095215px;
+  stroke-dasharray: 430.1910095215px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.12s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-2 {
+  stroke-dashoffset: 860.382019043px;
+}
+.source_list_item.item_first .icon svg .svg-elem-3 {
+  stroke-dashoffset: 23.2687263489px;
+  stroke-dasharray: 23.2687263489px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.24s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-3 {
+  stroke-dashoffset: 46.5374526978px;
+}
+.source_list_item.item_first .icon svg .svg-elem-4 {
+  stroke-dashoffset: 23.2687225342px;
+  stroke-dasharray: 23.2687225342px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.36s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-4 {
+  stroke-dashoffset: 46.5374450684px;
+}
+.source_list_item.item_first .icon svg .svg-elem-5 {
+  stroke-dashoffset: 23.2687225342px;
+  stroke-dasharray: 23.2687225342px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.48s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-5 {
+  stroke-dashoffset: 46.5374450684px;
+}
+.source_list_item.item_first .icon svg .svg-elem-6 {
+  stroke-dashoffset: 23.2687263489px;
+  stroke-dasharray: 23.2687263489px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.6s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-6 {
+  stroke-dashoffset: 46.5374526978px;
+}
+.source_list_item.item_first .icon svg .svg-elem-7 {
+  stroke-dashoffset: 19.7779998779px;
+  stroke-dasharray: 19.7779998779px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.72s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-7 {
+  stroke-dashoffset: 39.5559997559px;
+}
+.source_list_item.item_first .icon svg .svg-elem-8 {
+  stroke-dashoffset: 19.7779998779px;
+  stroke-dasharray: 19.7779998779px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.84s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-8 {
+  stroke-dashoffset: 39.5559997559px;
+}
+.source_list_item.item_first .icon svg .svg-elem-9 {
+  stroke-dashoffset: 750.1911621094px;
+  stroke-dasharray: 750.1911621094px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.96s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-9 {
+  stroke-dashoffset: 1500.3823242188px;
+  fill: rgb(46, 46, 46);
+}
+.source_list_item.item_first .icon svg .svg-elem-10 {
+  stroke-dashoffset: 750.1911621094px;
+  stroke-dasharray: 750.1911621094px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.08s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-10 {
+  stroke-dashoffset: 1500.3823242188px;
+}
+.source_list_item.item_first .icon svg .svg-elem-11 {
+  stroke-dashoffset: 259.8072509766px;
+  stroke-dasharray: 259.8072509766px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.2s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-11 {
+  stroke-dashoffset: 519.6145019531px;
+  fill: rgb(228, 164, 164);
+}
+.source_list_item.item_first .icon svg .svg-elem-12 {
+  stroke-dashoffset: 151.6161651611px;
+  stroke-dasharray: 151.6161651611px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.32s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-12 {
+  stroke-dashoffset: 303.2323303223px;
+  fill: rgb(201, 201, 201);
+}
+.source_list_item.item_first .icon svg .svg-elem-13 {
+  stroke-dashoffset: 27.4811172485px;
+  stroke-dasharray: 27.4811172485px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.44s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-13 {
+  stroke-dashoffset: 54.9622344971px;
+}
+.source_list_item.item_first .icon svg .svg-elem-14 {
+  stroke-dashoffset: 27.4811172485px;
+  stroke-dasharray: 27.4811172485px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.56s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-14 {
+  stroke-dashoffset: 54.9622344971px;
+}
+.source_list_item.item_first .icon svg .svg-elem-15 {
+  stroke-dashoffset: 268.966003418px;
+  stroke-dasharray: 268.966003418px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.68s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-15 {
+  stroke-dashoffset: 537.9320068359px;
+  fill: rgb(185, 204, 236);
+}
+.source_list_item.item_first .icon svg .svg-elem-16 {
+  stroke-dashoffset: 140.2730255127px;
+  stroke-dasharray: 140.2730255127px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.8s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.3s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-16 {
+  stroke-dashoffset: 280.5460510254px;
+  fill: rgb(201, 201, 201);
+}
+.source_list_item.item_first .icon svg .svg-elem-17 {
+  stroke-dashoffset: 122px;
+  stroke-dasharray: 122px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.92s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-17 {
+  stroke-dashoffset: 244px;
+}
+.source_list_item.item_first .icon svg .svg-elem-18 {
+  stroke-dashoffset: 42px;
+  stroke-dasharray: 42px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 2.04s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-18 {
+  stroke-dashoffset: 84px;
+}
+.source_list_item.item_first .icon svg .svg-elem-19 {
+  stroke-dashoffset: 268.8409423828px;
+  stroke-dasharray: 268.8409423828px;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 2.16s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-19 {
+  stroke-dashoffset: 537.6818847656px;
+}
+.source_list_item.item_first .icon svg .svg-elem-20 {
+  stroke-dashoffset: 759.8654785156px;
+  stroke-dasharray: 759.8654785156px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 2.28s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.7s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-20 {
+  stroke-dashoffset: 1519.7309570313px;
+  fill: rgb(59, 59, 59);
+}
+.source_list_item.item_first .icon svg .svg-elem-21 {
+  stroke-dashoffset: 27.1327412287px;
+  stroke-dasharray: 27.1327412287px;
+  fill: transparent;
+  transition: stroke-dashoffset 1s cubic-bezier(0.39, 0.575, 0.565, 1) 2.4s, fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.8s;
+}
+.source_list_item.item_first .icon svg.active .svg-elem-21 {
+  stroke-dashoffset: 54.2654824574px;
+  fill: rgb(59, 59, 59);
+}
+@media screen and (max-width: 1599px) {
+  .source_list_item.item_second {
+    padding-bottom: 0px;
+  }
+}
+.source_list_item.item_second .icon {
+  padding-left: 25px;
+  padding-right: 25px;
+  transform: translateY(36px);
+}
+@media screen and (max-width: 1599px) {
+  .source_list_item.item_second .icon {
+    padding-right: 62px;
+    padding-right: clamp(1.813rem, -8.5rem + 13.75vw, 3.875rem);
+    padding-left: 62px;
+    padding-left: clamp(1.813rem, -8.5rem + 13.75vw, 3.875rem);
+    transform: translateY(0px);
+  }
+}
+@media screen and (max-width: 1199px) {
+  .source_list_item.item_second .icon {
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .source_list_item.item_second .icon {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+.source_list_item.item_second .icon svg .path1 {
+  animation-name: animka;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0;
+  transform: translateY(15px);
+}
+.source_list_item.item_second .icon svg .path2 {
+  animation-name: animka;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0;
+  animation-delay: 0.2s;
+  transform: translateY(15px);
+}
+.source_list_item.item_second .icon svg .path3 {
+  animation-name: animka;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0;
+  animation-delay: 0.4s;
+  transform: translateY(15px);
+}
+.source_list_item.item_second .icon svg .path4 {
+  animation-name: animka;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0;
+  animation-delay: 0.6s;
+  transform: translateY(15px);
+}
+.source_list_item.item_second .icon svg .path5 {
+  animation-name: animka;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0;
+  animation-delay: 0.8s;
+  transform: translateY(15px);
+}
+.source_list_item.item_second .icon svg .path6 {
+  animation-name: animka;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0;
+  animation-delay: 1s;
+  transform: translateY(15px);
+}
+@keyframes animka {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+    stroke-width: 1px;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(7px);
+    stroke-width: 2px;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0px);
+    stroke-width: 3px;
+  }
+}
+.source_list_item .icon {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+.source_list_item .icon svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}

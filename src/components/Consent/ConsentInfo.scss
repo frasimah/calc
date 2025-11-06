@@ -1,0 +1,16 @@
+@import '../../scss/media';
+
+.consent {
+
+   h1 {
+      max-width: 950px;
+
+      @include desktop {
+         max-width: 700px;
+      }
+   }
+
+   p {
+      margin-bottom: 15px;
+   }
+}

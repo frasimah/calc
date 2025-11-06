@@ -1,0 +1,465 @@
+@use '../../../scss/media'as *;
+
+.services_page-package_modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.2);
+   z-index: 999;
+   padding: 80px 120px;
+   opacity: 0;
+   visibility: hidden;
+
+   transition: .4s;
+
+   @include desktop {
+      padding: 60px 20px;
+   }
+
+   @media screen and (min-width: 1200px) and (max-width: 1400px) {
+      padding: 60px 20px;
+   }
+
+   @include tablet {
+      padding: 40px 75px;
+   }
+
+   @include mobile {
+      padding: 70px 13px 20px 13px;
+   }
+
+   &.active {
+      opacity: 1;
+      visibility: visible;
+   }
+
+   &-wrap {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: fl(50, 28) fl(35, 22) fl(50, 28) fl(142, 76);
+
+      border-radius: 10px;
+      background: #FFF;
+      box-shadow: 0 24px 84px 0 rgba(0, 0, 0, 0.06);
+      width: 100%;
+      max-width: fl(1680, 1064);
+      max-height: 100%;
+      position: relative;
+
+      @include desktop {
+         max-width: 100%;
+         padding: 28px 22px 28px 76px;
+      }
+
+      @media screen and (min-width: 1200px) and (max-width: 1400px) {
+         max-width: 100%;
+      }
+
+      @include tablet {
+         padding: 28px 19px 28px 76px;
+      }
+
+      @include mobile {
+         padding: 20px 12px 20px 20px;
+      }
+   }
+
+   &-title {
+      color: #121212;
+      text-align: center;
+      font-size: fl(26, 20);
+      font-weight: 400;
+      line-height: fl(34, 28);
+      letter-spacing: 0.52px;
+      padding-right: fl(90, 54);
+
+      @include desktop {
+         font-size: 20px;
+         line-height: 28px;
+         letter-spacing: 0.4px;
+
+         padding-right: 54px;
+      }
+
+      @include tablet {
+         font-size: 16px;
+         line-height: 24px;
+         letter-spacing: 0.32px;
+
+         padding-right: 51px;
+      }
+
+      @include mobile {
+         padding-right: 11px;
+      }
+   }
+
+   &-close {
+      display: flex;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      position: absolute;
+      top: fl(30, 28);
+      right: fl(30, 17);
+      cursor: pointer;
+
+      @include desktop {
+         top: 28px;
+         right: 17px;
+      }
+
+      @include tablet {
+         top: 10px;
+         right: 10px;
+         width: 30px;
+         height: 30px;
+      }
+
+      @include mobile {
+         right: unset;
+         left: 50%;
+         transform: translateX(-50%);
+         top: -40px;
+         width: 30px;
+         height: 30px;
+      }
+
+      transition: .4s;
+
+      @include hover {
+         opacity: .7;
+      }
+
+      svg {
+         width: 100%;
+         height: 100%;
+      }
+   }
+
+   &-list {
+      margin-top: fl(40, 30);
+      max-height: 100%;
+      overflow-y: auto;
+      padding-right: fl(90, 54);
+
+      --bs-gutter-x: 10px;
+
+      @include desktop {
+         margin-top: 30px;
+         padding-right: 54px;
+      }
+
+      @include tablet {
+         padding-right: 51px;
+         margin-top: 24px;
+         row-gap: 24px;
+      }
+
+      @include mobile {
+         padding-right: 11px;
+         margin-top: 16px;
+      }
+
+      &::-webkit-scrollbar {
+         width: 6px;
+         border-radius: 10px;
+
+         @include mobile {
+            width: 2px;
+         }
+      }
+
+      &::-webkit-scrollbar-track {
+         background: transparent;
+         border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         background: #E8E8EB;
+         border-radius: 10px;
+      }
+   }
+
+   &-item {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      height: 100%;
+
+      @include tablet {
+         row-gap: 0px;
+      }
+
+      &_head {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         border-radius: 10px;
+         background: #F5F5F7;
+         padding: 20px fl(30, 20);
+
+         @include desktop {
+            padding: 20px;
+         }
+
+         @include tablet {
+            height: auto !important;
+         }
+
+         &-title {
+            color: #121212;
+            text-align: center;
+            font-size: fl(26, 20);
+            font-weight: 400;
+            line-height: fl(34, 28);
+            letter-spacing: 0.52px;
+
+            @include desktop {
+               font-size: 20px;
+               line-height: 28px;
+               letter-spacing: 0.4px;
+            }
+
+            @media screen and (min-width: 1200px) and (max-width: 1400px) {
+               font-size: 18px;
+               line-height: 26px;
+            }
+
+            @include tablet {
+               font-size: 16px;
+               line-height: 24px;
+               letter-spacing: 0.32px;
+            }
+         }
+
+         &-text {
+            margin-top: 16px;
+            flex: 1 1 auto;
+
+            color: #121212;
+            text-align: center;
+            font-size: fl(18, 14);
+            font-weight: 400;
+            line-height: fl(26, 22);
+
+            @include desktop {
+               font-size: 14px;
+               line-height: 22px;
+            }
+
+            @media screen and (min-width: 1200px) and (max-width: 1400px) {
+               font-size: 13px;
+               line-height: 21px;
+            }
+
+            @include tablet {
+               margin-top: 9px;
+
+               font-size: 12px;
+               line-height: 20px;
+            }
+         }
+
+         &-cost {
+            margin-top: 18px;
+
+            border-radius: 50px;
+            background: #006AFE;
+            padding: fl(7, 5) fl(16, 15);
+
+            color: #FFF;
+            text-align: center;
+            font-family: "IBM Plex Mono";
+            font-size: fl(18, 14);
+            font-weight: 400;
+            line-height: fl(26, 22);
+            letter-spacing: 0.36px;
+            text-transform: uppercase;
+
+            @include desktop {
+               margin-top: 32px;
+               padding: 5px 15px;
+
+               font-size: 14px;
+               line-height: normal;
+               letter-spacing: 0.28px;
+            }
+
+            @media screen and (min-width: 1200px) and (max-width: 1400px) {
+               font-size: 13px;
+               line-height: 21px;
+            }
+
+            @include tablet {
+               margin-top: 18px;
+               padding: 5px 12px;
+
+               font-size: 12px;
+               letter-spacing: 0.24px;
+            }
+         }
+
+         &-btn {
+            display: none;
+
+            @include tablet {
+               margin-top: 18px;
+               display: block;
+
+               color: #006AFE;
+               text-align: center;
+               font-size: 12px;
+               font-weight: 400;
+               line-height: 20px;
+            }
+         }
+      }
+
+      &_content_block {
+         display: block;
+         flex: 1 1 auto;
+
+         @include tablet {
+            display: none;
+            flex: unset;
+         }
+      }
+
+      &_content {
+         display: flex;
+         flex-direction: column;
+         row-gap: 20px;
+         padding: 20px fl(30, 20);
+         border-radius: 10px;
+         background: #F5F5F7;
+         flex: 1 1 auto;
+         height: 100%;
+
+         @include desktop {
+            padding: 20px;
+         }
+
+         @media screen and (min-width: 1200px) and (max-width: 1400px) {
+            padding: 16px;
+            row-gap: 12px;
+         }
+
+         @include tablet {
+            padding: 16px;
+            row-gap: 12px;
+            margin-top: 4px;
+         }
+
+         p {
+            display: flex;
+            column-gap: 16px;
+
+            color: #121212;
+            font-size: fl(16, 14);
+            font-weight: 400;
+            line-height: fl(24, 22);
+            letter-spacing: 0.32px;
+
+            position: relative;
+
+            @include desktop {
+               font-size: 14px;
+               line-height: 22px;
+               letter-spacing: 0.28px;
+            }
+
+            @media screen and (min-width: 1200px) and (max-width: 1400px) {
+               font-size: 12px;
+               line-height: 20px;
+            }
+
+            @include tablet {
+               font-size: 12px;
+               line-height: 20px;
+               letter-spacing: 0.24px;
+            }
+
+            &::before {
+               content: '';
+               display: block;
+               width: 14px;
+               height: 14px;
+               background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M10.3333%206.44444L7.22222%209.55556L5.66667%208M15%208C15%2011.866%2011.866%2015%208%2015C4.13401%2015%201%2011.866%201%208C1%204.13401%204.13401%201%208%201C11.866%201%2015%204.13401%2015%208Z%22%20stroke%3D%22%23006AFE%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+               background-size: 100% 100%;
+               background-repeat: no-repeat;
+               flex-shrink: 0;
+               transform: translateY(4px);
+            }
+         }
+
+         &-reports {
+            position: relative;
+            padding-left: 30px;
+
+            color: #121212;
+            font-size: fl(16, 14);
+            font-weight: 400;
+            line-height: fl(24, 22);
+            letter-spacing: 0.32px;
+
+            position: relative;
+
+            @include desktop {
+               font-size: 14px;
+               line-height: 22px;
+               letter-spacing: 0.28px;
+            }
+
+            @media screen and (min-width: 1200px) and (max-width: 1400px) {
+               font-size: 12px;
+               line-height: 20px;
+            }
+
+            @include tablet {
+               font-size: 12px;
+               line-height: 20px;
+               letter-spacing: 0.24px;
+            }
+
+            &::before {
+               content: '';
+               display: block;
+               width: 14px;
+               height: 14px;
+               background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M10.3333%206.44444L7.22222%209.55556L5.66667%208M15%208C15%2011.866%2011.866%2015%208%2015C4.13401%2015%201%2011.866%201%208C1%204.13401%204.13401%201%208%201C11.866%201%2015%204.13401%2015%208Z%22%20stroke%3D%22%23006AFE%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+               background-size: 100% 100%;
+               background-repeat: no-repeat;
+               flex-shrink: 0;
+               position: absolute;
+               left: 0;
+               top: 5px;
+            }
+
+            ul {
+               list-style-type: decimal;
+               padding-left: 20px;
+
+               @include tablet {
+                  margin-top: 5px;
+               }
+
+               li {
+                  margin-bottom: 5px;
+
+                  &:last-child {
+                     margin-bottom: 0px;
+                  }
+               }
+            }
+         }
+
+      }
+   }
+}

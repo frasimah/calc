@@ -1,0 +1,219 @@
+@use '../../../scss/media';
+
+.product_page_allow {
+   margin-top: 120px;
+   margin-top: media.fl(120, 80);
+
+   @include media.desktop {
+      margin-top: 80px;
+   }
+
+   @include media.tablet {
+      margin-top: 60px;
+   }
+
+   &_wrap {
+      margin-top: 60px;
+      margin-top: media.fl(60, 40);
+
+      @include media.desktop {
+         margin-top: 40px;
+      }
+
+      @include media.tablet {
+         margin-top: 24px;
+         row-gap: 7px;
+      }
+
+      @include media.mobile {
+         row-gap: 10px;
+      }
+
+      &_list {
+         row-gap: 20px;
+
+         @include media.tablet {
+            row-gap: 7px;
+         }
+
+         @include media.mobile {
+            row-gap: 10px;
+         }
+
+         .my_col {
+            flex: 1 1 50%;
+         }
+
+         &_item {
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            row-gap: media.fl(30, 24);
+            padding: 49px;
+            padding: media.fl(40, 39);
+            border-radius: 10px;
+            border: 1px solid #E8E8EB;
+            background: #FFF;
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+
+            @include media.desktop {
+               padding: 39px;
+               row-gap: 24px;
+            }
+
+            @include media.tablet {
+               padding: 19px;
+               row-gap: 20px;
+            }
+
+            &-icon {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               width: 100%;
+               max-width: 60px;
+               max-width: media.fl(60, 50);
+               height: 60px;
+               height: media.fl(60, 50);
+               aspect-ratio: 1/1;
+
+               @include media.desktop {
+                  max-width: 50px;
+                  height: 50px;
+               }
+
+               @include media.tablet {
+                  max-width: 40px;
+                  height: 40px;
+               }
+
+               svg,
+               img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+               }
+            }
+
+            &-text {
+               max-width: 460px;
+               max-width: media.fl(460, 410);
+
+               @include media.desktop {
+                  max-width: 410px;
+               }
+
+               @include media.tablet {
+                  max-width: 100%;
+               }
+
+               @include media.mobile {
+                  hyphens: auto;
+                  font-size: 14px;
+                  line-height: 20px;
+                  letter-spacing: 0.28px;
+               }
+            }
+         }
+      }
+
+      &_right {
+         display: flex;
+         justify-content: flex-start;
+         align-items: flex-start;
+         width: 100%;
+         max-width: 100%;
+         border-radius: 10px;
+         border: 1px solid rgba(0, 106, 254, 0.20);
+         background: var(--dark-blue-gradient-linear);
+         overflow: hidden;
+         height: 100%;
+         position: relative;
+
+         &.auto_height {
+            height: auto;
+         }
+
+         @include media.tablet {
+            height: auto;
+         }
+
+         span {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            user-select: none;
+            pointer-events: none;
+
+            svg {
+               width: 100%;
+               height: auto;
+
+               path {
+                  animation: animateCircle 2.5s infinite linear forwards;
+                  opacity: 0;
+                  transform: translateY(-30px);
+
+                  @for $i from 1 through 10 {
+                     &:nth-of-type(#{$i}) {
+                        animation-delay: $i * 0.2s;
+                     }
+                  }
+               }
+            }
+
+
+            @keyframes animateCircle {
+               0% {
+                  opacity: 0;
+                  transform: translateY(-30px);
+                  stroke-width: 1px;
+               }
+
+               50% {
+                  opacity: 1;
+                  transform: translateY(-15px);
+                  stroke-width: 1px;
+               }
+
+               100% {
+                  opacity: 0;
+                  transform: translateY(0px);
+                  stroke-width: 1px;
+               }
+            }
+         }
+
+         &-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+
+            img {
+               max-width: 100%;
+               width: auto;
+               height: auto;
+            }
+
+            svg {
+               max-width: 100%;
+               max-height: 100%;
+               width: auto;
+               height: auto;
+            }
+         }
+      }
+   }
+}

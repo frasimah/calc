@@ -1,0 +1,13 @@
+@import '../../../scss/media';
+
+.second_block {
+   margin-top: 80px;
+
+   @include tablet {
+      margin-top: 30px;
+   }
+
+   .benefits {
+      margin-top: 0px;
+   }
+}

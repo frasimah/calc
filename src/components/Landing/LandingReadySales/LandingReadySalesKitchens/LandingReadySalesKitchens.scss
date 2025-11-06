@@ -1,0 +1,71 @@
+@use '../../../../scss/media'as *;
+
+.landing_sales {
+
+   &.kitchens {
+      .landing_sales_wrap {
+         background: radial-gradient(184.54% 140.85% at 97.71% -1.44%, #E0A673 0%, #A96C3D 39.76%, #98542F 59.33%, #694026 84.29%, #592A0F 100%);
+      }
+   }
+
+   &_wrap {
+      background: var(--purple-radial);
+
+      &-left_icon {
+         position: absolute;
+         top: 0;
+         left: 0;
+         user-select: none;
+         pointer-events: none;
+      }
+
+      &-right_icon {
+         position: absolute;
+         right: 0;
+         bottom: 0;
+         user-select: none;
+         pointer-events: none;
+      }
+
+      row-gap: 0px;
+
+      &-title {}
+
+      &-text {
+         color: #FFF;
+         text-align: center;
+         font-size: 25px;
+         font-weight: 400;
+         line-height: 48px;
+         letter-spacing: -0.5px;
+         margin-top: 10px;
+         position: relative;
+         z-index: 2;
+
+         @include desktop {
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 0.4px;
+         }
+
+         @include tablet {
+            font-size: 16px;
+            line-height: 24px;
+         }
+
+         @include mobile {
+            font-size: 14px;
+            line-height: 22px;
+         }
+      }
+
+      &-btn {
+         margin-top: 30px;
+
+         @include tablet {
+            margin-top: 20px;
+         }
+      }
+   }
+
+}

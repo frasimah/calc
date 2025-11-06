@@ -1,0 +1,81 @@
+@use '/src/scss/media';
+
+.average-check-section {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.input-container {
+   display: flex;
+   align-items: center;
+   padding: 30px;
+   padding: media.fl(30, 20) media.fl(30, 25);
+   background: rgba(255, 255, 255, 0.2);
+   border-radius: 20px;
+   backdrop-filter: blur(150px);
+   box-shadow: inset 0px 0px 50px 0px rgba(255, 255, 255, 0.2);
+   height: 88px;
+   height: media.fl(88, 66);
+   box-sizing: border-box;
+
+   @include media.desktop {
+      height: 66px;
+      padding: 20px 25px;
+   }
+
+   @include media.tablet {
+      height: 62px;
+   }
+
+   @include media.mobile {
+      height: 60px;
+   }
+}
+
+.input-field {
+   background: transparent;
+   border: none;
+   outline: none;
+   color: #FFFFFF;
+   font-family: 'Onest';
+   font-weight: 400;
+   font-size: 20px;
+   font-size: media.fl(20, 18);
+   line-height: 30px;
+   line-height: media.fl(30, 26);
+   letter-spacing: 0.4px;
+   width: 100%;
+   padding: 0;
+
+   @include media.desktop {
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0.36px;
+   }
+
+   @include media.tablet {
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: 0.32px;
+   }
+
+   @include media.mobile {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.28px;
+   }
+
+   &::placeholder {
+      color: rgba(255, 255, 255, 0.60);
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      font-family: inherit;
+   }
+}
+
+.input-field::placeholder {
+   color: rgba(255, 255, 255, 0.6);
+}

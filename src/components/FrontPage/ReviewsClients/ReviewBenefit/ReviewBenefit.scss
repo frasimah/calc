@@ -1,0 +1,141 @@
+@import '../../../../scss/media';
+
+.reviews_benefit {
+   display: flex;
+   justify-content: center;
+   margin-top: 100px;
+   margin-top: fl(100, 80);
+   column-gap: 40px;
+
+   @include desktop {
+      margin-top: 80px;
+      column-gap: 50px;
+   }
+
+   @include tablet {
+      column-gap: 24px;
+      margin-top: 60px;
+   }
+
+   @include mobile {
+      flex-wrap: wrap;
+      width: 100%;
+      column-gap: 15px;
+      row-gap: 24px;
+   }
+
+   &.orange {
+      .reviews_benefit_item-count {
+         background: var(--orange-gradient-linear, linear-gradient(249deg, #964216 14.42%, #5E2A0F 41.35%, #2F1507 62.5%, #140902 86.54%, #00040D 100%));
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+      }
+   }
+
+   &.edtech {
+      .reviews_benefit_item-count {
+         background: var(--purple-linear);
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+      }
+   }
+
+   &_item {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      max-width: 360px;
+      width: 100%;
+      padding-right: 40px;
+      border-right: 1px solid #E8E8EB;
+
+      @include desktop {
+         max-width: 33.333333%;
+         padding-right: 50px;
+      }
+
+      @include tablet {
+         padding-right: 25px;
+      }
+
+      @include mobile {
+         flex: 1 1 calc(50% - 15px);
+         max-width: unset;
+         width: auto;
+         padding-right: 15px;
+      }
+
+      &:last-child {
+         border-right: unset;
+         padding-right: 0px;
+
+         @include mobile {
+            border-top: 1px solid #E8E8EB;
+            padding-top: 24px;
+         }
+      }
+
+      &:nth-of-type(even) {
+         @include mobile {
+            padding-right: 0px;
+            border: unset;
+         }
+      }
+
+      &-count {
+         text-align: center;
+         font-family: "Onest", sans-serif;
+         font-size: 34px;
+         font-size: fl(34, 30);
+         font-style: normal;
+         font-weight: 400;
+         line-height: 44px;
+         line-height: fl(44, 36);
+         letter-spacing: -0.68px;
+
+         background: linear-gradient(69deg, #00040D 0%, #01193B 17.79%, #034090 55.51%, #0168C7 73.94%, #05A6F5 95.79%);
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+
+         @include desktop {
+            font-size: 30px;
+            line-height: 36px;
+            letter-spacing: -0.6px;
+         }
+
+         @include mobile {
+            text-align: left;
+         }
+      }
+
+      &-descr {
+         color: #121212;
+         text-align: center;
+         font-family: "Onest", sans-serif;
+         font-size: 20px;
+         font-size: fl(20, 16);
+         font-style: normal;
+         font-weight: 400;
+         line-height: 30px;
+         line-height: fl(30, 24);
+         letter-spacing: 0.4px;
+
+         @include desktop {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.32px;
+         }
+
+         @include mobile {
+            text-align: left;
+
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.28px;
+         }
+      }
+   }
+}

@@ -1,0 +1,218 @@
+@use '../../../scss/media'as *;
+
+.services_page_faq {
+   margin-top: fl(120, 80);
+
+   @include desktop {
+      margin-top: 80px;
+   }
+
+   &-head_icon {
+      display: flex;
+      width: fl(60, 50);
+      height: fl(60, 50);
+      flex-shrink: 0;
+
+      @include desktop {
+         width: 50px;
+         height: 50px;
+      }
+
+      @include tablet {
+         display: none;
+      }
+
+      svg {
+         width: 100%;
+         height: 100%;
+      }
+   }
+
+   .row {
+      margin-top: 40px;
+   }
+
+   &-title {
+      color: #121212;
+      font-size: fl(34, 26);
+      font-weight: 400;
+      line-height: fl(44, 36);
+      letter-spacing: -0.68px;
+
+      @include desktop {
+         font-size: 26px;
+         line-height: 36px;
+         letter-spacing: -0.52px;
+      }
+
+      @include tablet {
+         font-size: 20px;
+         line-height: 26px;
+         letter-spacing: -0.4px;
+      }
+   }
+
+   &_list {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      width: 100%;
+      row-gap: 10px;
+
+      border-radius: 20px;
+      background: #F5F5F7;
+
+      @include tablet {
+         padding: 5px;
+         row-gap: 5px;
+
+         margin-top: 20px;
+      }
+
+      &_el {
+         border-radius: 10px;
+         background: #FFF;
+
+         &.open {
+            .services_page_faq_list_el_head-icon {
+               transform: rotate(180deg);
+            }
+         }
+
+         &_head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 30px;
+            cursor: pointer;
+            padding: fl(30, 20) fl(40, 30);
+
+            @include desktop {
+               padding: 20px 30px;
+            }
+
+            @include tablet {
+               padding: 11px 16px;
+               align-items: flex-start;
+            }
+
+            @include hover {
+               .services_page_faq_list_el_head-title {
+                  color: #006AFE;
+               }
+            }
+
+            &-title {
+               color: #121212;
+               font-size: fl(26, 20);
+               font-weight: 400;
+               line-height: fl(34, 28);
+               letter-spacing: 0.52px;
+
+               transition: .4s;
+
+               @include desktop {
+                  font-size: 20px;
+                  line-height: 28px;
+                  letter-spacing: 0.4px;
+               }
+
+               @include tablet {
+                  font-size: 16px;
+                  line-height: 24px;
+                  letter-spacing: 0.32px;
+               }
+            }
+
+            &-icon {
+               display: flex;
+               width: 38px;
+               height: 38px;
+               flex-shrink: 0;
+
+               transition: .4s;
+
+               @include tablet {
+                  width: 24px;
+                  height: 24px;
+               }
+
+               svg {
+                  width: 100%;
+                  height: 100%;
+               }
+            }
+         }
+
+         &-content {
+            display: none;
+            color: #121212;
+            font-size: fl(20, 16);
+            font-weight: 400;
+            line-height: fl(28, 24);
+            letter-spacing: 0.34px;
+            overflow: hidden;
+            margin: fl(20, 10) fl(40, 30) fl(30, 20) fl(40, 30);
+
+            @include desktop {
+               margin: 10px 30px 20px 30px;
+
+               font-size: 16px;
+               line-height: 24px;
+               letter-spacing: 0.32px;
+            }
+
+            @include tablet {
+               margin: 19px 16px 11px 16px;
+
+               font-size: 14px;
+               line-height: 22px;
+               letter-spacing: 0.28px;
+            }
+
+            >* {
+               &:last-child {
+                  margin-bottom: 0px;
+               }
+            }
+
+            ul {
+               margin-bottom: fl(20, 10);
+               list-style-type: disc;
+               padding-left: 20px;
+
+               @include desktop {
+                  margin-bottom: 10px;
+               }
+            }
+
+            a {
+               color: #006AFE;
+               font-size: inherit;
+               font-weight: inherit;
+               line-height: inherit;
+               letter-spacing: inherit;
+
+               transition: .4s;
+
+               @include hover {
+                  opacity: .7;
+               }
+            }
+
+            p {
+               margin-bottom: fl(20, 10);
+
+               @include desktop {
+                  margin-bottom: 10px;
+               }
+            }
+
+            span {
+               color: #006AFE;
+               font-weight: 600;
+            }
+         }
+      }
+   }
+}

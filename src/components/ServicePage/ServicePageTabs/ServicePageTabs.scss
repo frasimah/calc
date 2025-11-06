@@ -1,0 +1,183 @@
+@import '../../../scss/media';
+
+.service_page_tabs {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   column-gap: 20px;
+   row-gap: 10px;
+   width: 100%;
+
+   margin-top: fl(80, 30);
+
+   @include desktop {
+      margin-top: 30px;
+   }
+
+   &-item {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 19px;
+      padding: clamp(0.688rem, -0.875rem + 1.563vw, 1rem) clamp(1.063rem, 0.438rem + 0.625vw, 1.188rem);
+      // 16px > 11px
+      // 19px > 17px
+      border-radius: 12px;
+      border: 1px solid #E8E8EB;
+      background: #FFF;
+
+      color: #121212;
+      text-align: center;
+      font-family: "IBM Plex Mono";
+      font-size: 18px;
+      font-size: clamp(1rem, 0.375rem + 0.625vw, 1.125rem);
+      // 18px > 16px
+      font-weight: 400;
+      line-height: 26px;
+      line-height: clamp(1.5rem, 0.875rem + 0.625vw, 1.625rem);
+      // 26px > 24px
+      letter-spacing: 0.36px;
+      text-transform: uppercase;
+
+      cursor: pointer;
+      transition: .4s;
+
+      @include hover {
+         color: #006AFE;
+         border-color: #006AFE;
+      }
+
+      @include desktop {
+         padding: 11px 17px;
+
+         font-size: 16px;
+         line-height: 24px;
+         letter-spacing: 0.32px;
+      }
+
+      @include tablet {
+         padding: 9px 13px;
+
+         font-size: 14px;
+         line-height: 22px;
+         letter-spacing: 0.28px;
+      }
+
+      &.active {
+         color: #006AFE;
+         border-color: #006AFE;
+      }
+   }
+}
+
+.react-select {
+   width: 100%;
+   max-width: 100%;
+
+   .react-select__control {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      border-color: #006AFE;
+      box-shadow: unset;
+
+      &.react-select__control--menu-is-open {
+         border-bottom: 1px solid transparent;
+         border-bottom-left-radius: 0px;
+         border-bottom-right-radius: 0px;
+
+         .react-select__dropdown-indicator {
+            transform: rotate(180deg);
+         }
+      }
+
+      & .react-select__control--is-focused {
+         border: 1px solid #006AFE;
+      }
+   }
+
+   .react-select__value-container {
+      padding: 8px 12px;
+   }
+
+   .react-select__single-value {
+      color: #006AFE;
+      font-family: "IBM Plex Mono";
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.28px;
+      text-transform: uppercase;
+
+      padding: 0px;
+      margin: 0px;
+   }
+
+   .react-select__input-container {
+      padding: 0;
+      margin: 0;
+   }
+
+   .react-select__indicator-separator {
+      display: none;
+   }
+
+   .react-select__dropdown-indicator {
+      padding: 0px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='8' viewBox='0 0 11 8' fill='none'%3E%3Cpath d='M1 1L5.5 7L10 1' stroke='%23006AFE'/%3E%3C/svg%3E");
+      background-size: 9px 6px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 26px;
+      height: 26px;
+
+      transition: .4s;
+
+      svg {
+         display: none;
+      }
+   }
+
+   .react-select__menu {
+      background: #fff;
+      top: 100%;
+      margin: 0px;
+      box-shadow: unset;
+      border: 1px solid #006AFE;
+      border-radius: 0px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-top: unset;
+      z-index: 5;
+   }
+
+   .react-select__option {
+      // ваши стили для опций
+   }
+
+   .react-select__menu-list {
+      padding: 0px;
+   }
+
+   .react-select__option {
+      color: #121212;
+      font-family: "IBM Plex Mono";
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.28px;
+      text-transform: uppercase;
+
+      padding: 5px 13px;
+   }
+
+   .react-select__option--is-focused {
+      color: #006AFE;
+      background-color: transparent;
+   }
+
+   .react-select__option--is-selected {
+      color: #006AFE;
+      background-color: transparent;
+   }
+}

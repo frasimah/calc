@@ -1,0 +1,160 @@
+@use '../../../scss/media';
+
+.product_page_do {
+   display: flex;
+   flex-direction: column;
+   row-gap: 120px;
+   row-gap: media.fl(120, 80);
+   margin-top: 80px;
+
+   @include media.desktop {
+      row-gap: 80px;
+   }
+
+   @include media.tablet {
+      margin-top: 30px;
+      row-gap: 60px;
+   }
+
+   &_top {
+      padding: 50px;
+      border-radius: 10px;
+      background: radial-gradient(50% 50% at 50% 50%, #036CFE 12.86%, #7DB3FE 100%);
+      overflow: hidden;
+
+      @include media.desktop {
+         padding: 80px 0px;
+         position: relative;
+         background: unset;
+         overflow: visible;
+      }
+
+      @include media.tablet {
+         padding: 30px 0px;
+      }
+
+      .benefits {
+         position: relative;
+         z-index: 2;
+      }
+
+      &::after {
+         content: '';
+         display: none;
+         position: absolute;
+         top: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 100vw;
+         height: 100%;
+         background: radial-gradient(50% 50% at 50% 50%, #036CFE 12.86%, #7DB3FE 100%);
+         user-select: none;
+         pointer-events: none;
+
+         @include media.desktop {
+            display: block;
+         }
+      }
+   }
+
+   &_bot {
+
+      @include media.mobile {
+         row-gap: 24px;
+      }
+
+      &-image {
+         display: block;
+         border-radius: 10px;
+         overflow: hidden;
+         height: auto;
+         width: 100%;
+         max-width: 100%;
+         aspect-ratio: 83/54;
+
+         img,
+         svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+      }
+
+      &_content {
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-end;
+         height: 100%;
+         row-gap: 40px;
+         row-gap: media.fl(40, 24);
+
+         @include media.desktop {
+            justify-content: center;
+            row-gap: 24px;
+         }
+
+         @include media.tablet {
+            row-gap: 16px;
+            justify-content: flex-start;
+         }
+
+         @include media.mobile {
+            align-items: center;
+         }
+
+         &-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 60px;
+            max-width: media.fl(60, 50);
+            height: 60px;
+            height: media.fl(60, 50);
+            aspect-ratio: 1/1;
+            overflow: hidden;
+
+            @include media.desktop {
+               max-width: 50px;
+               height: 50px;
+            }
+
+            @include media.tablet {
+               max-width: 40px;
+               height: 40px;
+            }
+
+            svg,
+            img {
+               width: 100%;
+               height: 100%;
+               object-fit: contain;
+            }
+         }
+
+         &-text {
+            ul {
+               list-style-type: disc;
+               padding-left: 20px;
+
+               li {
+                  margin-bottom: 10px;
+                  margin-bottom: media.fl(10, 0);
+
+                  @include media.desktop {
+                     margin-bottom: 0px;
+                  }
+
+                  @include media.mobile {
+                     margin-bottom: 10px;
+                  }
+
+                  &:last-child {
+                     margin-bottom: 0px;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

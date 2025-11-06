@@ -1,0 +1,129 @@
+.modal_menu_wrap {
+  display: none;
+  z-index: 120;
+}
+@media screen and (max-width: 767px) {
+  .modal_menu_wrap {
+    display: flex;
+    background: #353535;
+    padding: 0px;
+    opacity: 1;
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+    justify-content: flex-end;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    pointer-events: none;
+  }
+  .modal_menu_wrap.ReactModal__Overlay--before-close {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    pointer-events: none;
+  }
+  .modal_menu_wrap.ReactModal__Overlay--after-open {
+    -webkit-user-select: auto;
+       -moz-user-select: auto;
+            user-select: auto;
+    pointer-events: all;
+  }
+  .modal_menu_wrap .modal_menu {
+    padding: 50px 44px 50px 0px;
+    width: 100%;
+    max-width: 65vw;
+    height: 100%;
+    position: unset;
+  }
+  .modal_menu_wrap .modal_menu .close_menu {
+    display: flex;
+    position: absolute;
+    right: 13px;
+    top: 15px;
+    opacity: 0;
+    transition: 0.4s cubic-bezier(0.15, 0.2, 0.1, 1);
+    transition-delay: 0s;
+    z-index: 2;
+  }
+  .modal_menu_wrap .modal_menu nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transform: translateX(31px);
+    transition: 0.8s cubic-bezier(0.15, 0.2, 0.1, 1);
+    position: relative;
+    z-index: 2;
+    will-change: transform;
+  }
+  .modal_menu_wrap .modal_menu nav ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 20px;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  .modal_menu_wrap .modal_menu nav ul::-webkit-scrollbar {
+    width: 0px;
+  }
+  .modal_menu_wrap .modal_menu nav ul li {
+    display: flex;
+  }
+  .modal_menu_wrap .modal_menu nav ul li a {
+    color: #FFF;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0.52px;
+  }
+  .modal_menu_wrap .modal_menu-circle {
+    display: flex;
+    position: absolute;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    border-radius: 50%;
+    background: #212121;
+    filter: blur(60px);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    animation: animMenuCircle 10s infinite forwards;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    pointer-events: none;
+    will-change: transform;
+  }
+  @keyframes animMenuCircle {
+    0% {
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
+    }
+    50% {
+      width: calc(100% - 200px);
+      height: calc(100% - 200px);
+    }
+    100% {
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
+    }
+  }
+  .modal_menu_wrap .modal_menu.ReactModal__Content--after-open nav {
+    transform: translateX(0px);
+  }
+  .modal_menu_wrap .modal_menu.ReactModal__Content--after-open .close_menu {
+    opacity: 1;
+    transition: 0.4s;
+    transition-delay: 0.6s;
+  }
+  .modal_menu_wrap .modal_menu.ReactModal__Content--before-close nav {
+    transform: translateX(40px);
+  }
+  .modal_menu_wrap .modal_menu.ReactModal__Content--before-close .close_menu {
+    opacity: 0;
+    transition: 0.4s;
+    transition-delay: 0s;
+  }
+}

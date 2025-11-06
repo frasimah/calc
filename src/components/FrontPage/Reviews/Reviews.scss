@@ -1,0 +1,59 @@
+@import '../../../scss/media';
+
+.reviews {
+   background: var(--dark-gradient);
+   padding-top: 100px;
+   padding-top: clamp(5rem, -1.25rem + 6.25vw, 6.25rem);
+   // 100px > 80px
+   padding-bottom: 100px;
+   padding-bottom: clamp(5rem, -1.25rem + 6.25vw, 6.25rem);
+   // 100px > 80px
+
+   scroll-margin-top: 50px;
+
+   &.orange {
+      background: var(--dark-orange-gradient-linear);
+   }
+
+   &.edtech {
+      background: var(--puprle-dark-gradient);
+   }
+
+   &.kitchens {
+      background: radial-gradient(184.54% 140.85% at 97.71% -1.44%, #E0A673 0%, #A96C3D 39.76%, #98542F 59.33%, #694026 84.29%, #592A0F 100%);
+   }
+
+   @include desktop {
+      padding-top: 80px;
+      padding-bottom: 80px;
+   }
+
+   @include tablet {
+      padding-top: 30px;
+      padding-bottom: 30px;
+   }
+
+   .container {
+      overflow: visible;
+   }
+
+   &_wrap {
+      display: flex;
+      flex-direction: column;
+      row-gap: 120px;
+      row-gap: clamp(4.375rem, -11.25rem + 15.625vw, 7.5rem);
+      // 120px > 70px
+
+      @include desktop {
+         row-gap: 70px;
+      }
+
+      @include tablet {
+         row-gap: 30px;
+      }
+
+      @include mobile {
+         row-gap: 60px;
+      }
+   }
+}

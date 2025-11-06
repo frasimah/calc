@@ -1,0 +1,188 @@
+@property --angle-1 {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+@property --angle-2 {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: true;
+}
+@property --angle-3 {
+  syntax: "<angle>";
+  initial-value: 180deg;
+  inherits: true;
+}
+@property --angle-4 {
+  syntax: "<angle>";
+  initial-value: 270deg;
+  inherits: true;
+}
+:root {
+  --d: 3500ms;
+  --angle-1: 0deg;
+  --angle-2: 90deg;
+  --angle-3: 180deg;
+  --angle-4: 270deg;
+  --c1: #0970FF;
+  --c2: rgba(168, 239, 255, 0.1);
+}
+
+.advantages_card {
+  row-gap: 20px;
+}
+@media screen and (max-width: 1599px) {
+  .advantages_card {
+    overflow: visible;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .advantages_card {
+    row-gap: 10px;
+  }
+}
+@media screen and (max-width: 1599px) {
+  .advantages_card .swiper-slide {
+    max-width: 350px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .advantages_card .swiper-slide {
+    max-width: 305px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .advantages_card .swiper-slide {
+    max-width: 320px;
+  }
+}
+.advantages_card .swiper-slide:nth-child(odd) .advantages_card_item.black {
+  -o-border-image: conic-gradient(from var(--angle-1), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+     border-image: conic-gradient(from var(--angle-1), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+}
+.advantages_card .swiper-slide:nth-child(even) .advantages_card_item.black {
+  -o-border-image: conic-gradient(from var(--angle-3), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+     border-image: conic-gradient(from var(--angle-3), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+}
+.advantages_card .col-xl-3:nth-child(odd) .advantages_card_item.black {
+  -o-border-image: conic-gradient(from var(--angle-1), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+     border-image: conic-gradient(from var(--angle-1), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+}
+.advantages_card .col-xl-3:nth-child(even) .advantages_card_item.black {
+  -o-border-image: conic-gradient(from var(--angle-3), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+     border-image: conic-gradient(from var(--angle-3), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+}
+.advantages_card_item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid #E8E8EB;
+  background: #fff;
+  padding: 49px;
+  padding: clamp(2.438rem, -0.688rem + 3.125vw, 3.063rem);
+  height: 100%;
+}
+@media screen and (max-width: 1599px) {
+  .advantages_card_item {
+    padding: 39px;
+    padding: clamp(1.188rem, -5.063rem + 8.333vw, 2.438rem);
+  }
+}
+@media screen and (max-width: 1199px) {
+  .advantages_card_item {
+    padding: 19px;
+  }
+}
+.advantages_card_item.black {
+  border-radius: 10px;
+  border: unset;
+  border: 1px solid transparent;
+  background: #252525;
+  position: relative;
+  animation: borderRotate var(--d) linear infinite forwards;
+}
+@keyframes borderRotate {
+  100% {
+    --angle-1: 360deg;
+    --angle-2: 450deg;
+    --angle-3: 540deg;
+    --angle-4: 630deg;
+  }
+}
+.advantages_card_item > *:first-child {
+  margin-top: 0px;
+}
+.advantages_card_item > *:last-child {
+  margin-bottom: 0px;
+}
+.advantages_card_item-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 60px;
+  max-width: clamp(3.125rem, 0rem + 3.125vw, 3.75rem);
+  height: 60px;
+  height: clamp(3.125rem, 0rem + 3.125vw, 3.75rem);
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 1599px) {
+  .advantages_card_item-icon {
+    max-width: 50px;
+    max-width: clamp(2.5rem, -0.625rem + 4.167vw, 3.125rem);
+    height: 50px;
+    height: clamp(2.5rem, -0.625rem + 4.167vw, 3.125rem);
+  }
+}
+@media screen and (max-width: 1199px) {
+  .advantages_card_item-icon {
+    max-width: 40px;
+    height: 40px;
+  }
+}
+.advantages_card_item-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.advantages_card_item-title {
+  margin-top: 20px;
+  margin-top: clamp(0.625rem, -2.5rem + 3.125vw, 1.25rem);
+  color: #121212;
+  font-size: 26px;
+  font-size: clamp(1.25rem, -0.625rem + 1.875vw, 1.625rem);
+  font-weight: 400;
+  line-height: 34px;
+  line-height: clamp(1.75rem, -0.125rem + 1.875vw, 2.125rem);
+  letter-spacing: 0.52px;
+}
+@media screen and (max-width: 1599px) {
+  .advantages_card_item-title {
+    margin-top: 10px;
+    font-size: 20px;
+    font-size: clamp(1.125rem, 0.5rem + 0.833vw, 1.25rem);
+    line-height: 28px;
+    letter-spacing: 0.4px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .advantages_card_item-title {
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0.36px;
+  }
+}
+.advantages_card_item-title.white {
+  color: #fff;
+}
+.advantages_card_item .typical_text {
+  margin-top: 20px;
+  margin-top: clamp(0.625rem, -2.5rem + 3.125vw, 1.25rem);
+}
+@media screen and (max-width: 1599px) {
+  .advantages_card_item .typical_text {
+    margin-top: 10px;
+  }
+}

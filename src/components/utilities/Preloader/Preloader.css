@@ -1,0 +1,199 @@
+.preloader {
+  z-index: 5060;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  pointer-events: none;
+}
+.preloader .init.fadeIn .preloader-bg {
+  animation-duration: 0.7s;
+}
+.preloader .init.fadeIn .preloader-logo {
+  animation-duration: 0.3s;
+}
+.preloader-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(50% 50% at 50% 50%, #036CFE 12.86%, #7DB3FE 100%);
+}
+@media screen and (max-width: 767px) {
+  .preloader-bg {
+    background: radial-gradient(50% 50% at 50% 50%, #036CFE 12.86%, #7DB3FE 100%);
+  }
+}
+.preloader-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101%;
+  height: 100%;
+  background-color: #FFF;
+  transform-origin: 100% 0;
+}
+.preloader.fadeIn.init .preloader-bg {
+  animation-name: page-overlay-out;
+  animation-duration: 0.7s;
+  animation-delay: 1.2s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader.fadeIn.init .preloader-bg::before {
+  transform: scale(0);
+  animation-name: page-overlay-moment-out;
+  animation-duration: 0.7s;
+  animation-delay: 0.3s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader.fadeIn.init .preloader-logo {
+  animation-name: menuShrink;
+  animation-duration: 0.3s;
+  animation-delay: 1.2s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader.fadeIn .preloader-bg {
+  animation-name: page-overlay-out;
+  animation-duration: 0.7s;
+  animation-delay: 0s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader.fadeIn .preloader-bg::before {
+  transform: scale(0);
+}
+.preloader.fadeIn .preloader-logo {
+  animation-name: menuShrink;
+  animation-duration: 0.3s;
+  animation-delay: 0s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader.fadeOut .preloader-bg {
+  animation-name: page-overlay-in;
+  animation-duration: 0.7s;
+  animation-delay: 0s;
+  animation-timing-function: cubic-bezier(0.04, 0.93, 0.02, 0.98);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader.fadeOut .preloader-bg::before {
+  animation-name: page-overlay-moment-in;
+  animation-duration: 0.7s;
+  animation-delay: 0s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader.fadeOut .preloader-logo {
+  animation-name: menuExpand;
+  animation-duration: 0.7s;
+  animation-delay: 0.1s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.preloader-logo {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preloader-logo svg {
+  width: 250px;
+  height: auto;
+}
+@media screen and (max-width: 1199px) {
+  .preloader-logo svg {
+    width: 150px;
+  }
+}
+.preloader.isHash {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+@keyframes page-overlay-out {
+  0% {
+    transform-origin: 100% 0;
+    transform: translate(0);
+  }
+  100% {
+    transform-origin: 100% 0;
+    transform: translate(100%);
+  }
+}
+@keyframes page-overlay-in {
+  0% {
+    transform: translate(-100%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes page-overlay-moment-in {
+  0% {
+    transform-origin: 100% 0;
+    transform: scaleX(1);
+  }
+  100% {
+    transform-origin: 100% 0;
+    transform: scaleX(0);
+  }
+}
+@keyframes page-overlay-moment-out {
+  0% {
+    transform-origin: 0 100%;
+    transform: scaleX(1);
+  }
+  100% {
+    transform-origin: 0 100%;
+    transform: scaleX(0);
+  }
+}
+@keyframes menuShrink {
+  0% {
+    transform: translateX(0);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(60px);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+@keyframes menuExpand {
+  0% {
+    transform: translateX(-60px);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+}

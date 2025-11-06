@@ -1,0 +1,255 @@
+@use '../../../scss/media'as *;
+
+.services_page-table_modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.2);
+   z-index: 999;
+   padding: fl(110, 70);
+   opacity: 0;
+   visibility: hidden;
+   user-select: none;
+   pointer-events: none;
+
+   transition: .4s;
+
+   @include desktop {
+      padding: 70px;
+   }
+
+   @include mobile {
+      padding: 70px 13px 20px 13px;
+   }
+
+   &.active {
+      user-select: auto;
+      pointer-events: all;
+      opacity: 1;
+      visibility: visible;
+   }
+
+   &-wrap {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-height: 100%;
+      max-width: fl(1396, 1064);
+      padding: fl(50, 28) fl(30, 17) fl(50, 42) fl(80, 76);
+      border-radius: 10px;
+      background: #FFF;
+      box-shadow: 0 24px 84px 0 rgba(0, 0, 0, 0.06);
+      position: relative;
+
+      @include desktop {
+         padding: 28px 17px 42px 76px;
+
+         max-width: 1064px;
+      }
+
+      @include tablet {
+         padding: 28px 19px 28px 41px;
+      }
+
+      @include mobile {
+         padding: 20px 7px 20px 20px;
+      }
+
+      &-title {
+         color: #121212;
+         text-align: center;
+         font-size: fl(26, 20);
+         font-weight: 400;
+         line-height: fl(34, 28);
+         letter-spacing: 0.52px;
+         padding: 0 50px;
+
+         @include desktop {
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 0.4px;
+         }
+
+         @include tablet {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.32px;
+
+            padding: 0 30px;
+         }
+
+         @include mobile {
+            padding: 0;
+         }
+      }
+
+      &-close {
+         display: flex;
+         width: 38px;
+         height: 38px;
+         flex-shrink: 0;
+         position: absolute;
+         top: fl(30, 28);
+         right: fl(30, 17);
+         cursor: pointer;
+
+         @include desktop {
+            top: 28px;
+            right: 17px;
+         }
+
+         @include tablet {
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+         }
+
+         @include mobile {
+            right: unset;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -40px;
+            width: 30px;
+            height: 30px;
+         }
+
+         transition: .4s;
+
+         @include hover {
+            opacity: .7;
+         }
+
+         svg {
+            width: 100%;
+            height: 100%;
+         }
+      }
+
+      &-table {
+         display: block;
+         width: 100%;
+         max-height: 100%;
+         overflow-y: auto;
+         margin-top: fl(40, 30);
+         padding-right: 50px;
+
+         @include desktop {
+            margin-top: 30px;
+         }
+
+         @include tablet {
+            padding-right: 16px;
+            margin-top: 24px;
+         }
+
+         @include mobile {
+            padding-right: 11px;
+            margin-top: 16px;
+         }
+
+         &::-webkit-scrollbar {
+            width: 6px;
+            border-radius: 10px;
+
+            @include mobile {
+               width: 2px;
+            }
+         }
+
+         &::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 10px;
+         }
+
+         &::-webkit-scrollbar-thumb {
+            background: #E8E8EB;
+            border-radius: 10px;
+         }
+      }
+
+   }
+
+   table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 10px 10px;
+
+      @include tablet {
+         border-spacing: 5px 5px;
+      }
+
+      tr {
+         color: #121212;
+         text-align: center;
+         font-size: fl(18, 16);
+         font-weight: 400;
+         line-height: fl(26, 24);
+         letter-spacing: 0.36px;
+
+         background: #F5F5F7;
+         cursor: pointer;
+
+         transition: .4s;
+
+         @include desktop {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.32px;
+         }
+
+         @include tablet {
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 0.28px;
+         }
+
+         @include mobile {
+            font-size: 12px;
+            line-height: 20px;
+            letter-spacing: 0.24px;
+         }
+
+         @include hover {
+            background: #E8E8EB;
+         }
+
+         th {
+            padding: fl(20, 14) 40px;
+            width: 100%;
+            max-width: 50%;
+            border-radius: 10px;
+            vertical-align: middle;
+
+            @include desktop {
+               padding: 14px 40px;
+            }
+
+            @include tablet {
+               padding: 9px 30px;
+            }
+
+            @include mobile {
+               padding: 9px 12px;
+            }
+         }
+
+         td {
+            padding: 14px 20px;
+            width: 100%;
+            max-width: 50%;
+            border-radius: 10px;
+            vertical-align: middle;
+
+            @include mobile {
+               padding: 10px 20px;
+            }
+         }
+      }
+   }
+}

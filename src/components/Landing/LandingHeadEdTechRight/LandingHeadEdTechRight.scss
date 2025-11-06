@@ -1,0 +1,200 @@
+@use '../../../scss/media';
+
+.landing_page_head_wrap_right {
+   display: flex;
+   flex-direction: column;
+   max-width: 570px;
+   max-width: media.fl(570, 470);
+   margin-right: 180px;
+   margin-right: media.fl(180, 42);
+   position: relative;
+
+   @include media.desktop {
+      max-width: 470px;
+      margin-right: 42px;
+   }
+
+   @include media.tablet {
+      max-width: 314px;
+      margin-right: 18px;
+   }
+
+   @include media.mobile {
+      margin: 0 auto;
+      max-width: 500px;
+      width: 100%;
+   }
+
+   &_list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+
+      @include media.tablet {
+         gap: 16px;
+      }
+
+      &-item {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-wrap: wrap;
+         width: 90px;
+         width: media.fl(90, 70);
+         height: 90px;
+         height: media.fl(90, 70);
+         position: relative;
+         perspective: 2000px;
+
+         @include media.desktop {
+            width: 70px;
+            height: 70px;
+         }
+
+         @include media.tablet {
+            width: 50px;
+            height: 50px;
+         }
+
+         @include media.mobile {
+            width: calc(20% - 13px);
+            height: auto;
+            aspect-ratio: 1/1;
+         }
+
+         span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #FFF;
+            z-index: 1;
+            perspective: 2000px;
+            backface-visibility: hidden;
+         }
+
+         img {
+            width: calc(100%);
+            height: calc(100%);
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            border-radius: 50%;
+            perspective: 2000px;
+            backface-visibility: hidden;
+         }
+
+         svg {
+            width: 40px;
+            width: media.fl(40, 34);
+            height: 40px;
+            height: media.fl(40, 34);
+
+            @include media.desktop {
+               width: 34px;
+               height: 34px;
+            }
+
+            @include media.tablet {
+               width: 26px;
+               height: 26px;
+            }
+         }
+      }
+   }
+
+   &-line {
+      display: block;
+      width: 100%;
+      height: 25px;
+      height: media.fl(25, 20);
+      border-radius: 30px;
+      background: #FFF;
+      position: relative;
+      margin-top: 50px;
+      margin-top: media.fl(50, 30);
+      overflow: hidden;
+
+      @include media.desktop {
+         height: 20px;
+         margin-top: 30px;
+      }
+
+      &.active {
+         span {
+            width: 100%;
+            transform: translateX(0%);
+            transition: 3s ease-out;
+         }
+      }
+
+      span {
+         display: block;
+         position: absolute;
+         width: 100%;
+         max-width: 100%;
+         height: 100%;
+         background: #508F77;
+         border-radius: 30px;
+         transform: translateX(-100%);
+
+         transition: 0s ease-out;
+      }
+   }
+
+   &-text {
+      color: #FFF;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.32px;
+
+      margin-top: 18px;
+   }
+
+   &-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      user-select: none;
+      pointer-events: none;
+
+      @include media.mobile {
+         width: 150%;
+      }
+
+      svg {
+         width: 1018px;
+         width: media.fl(1018, 750);
+         height: 760px;
+         height: media.fl(760, 560);
+
+         @include media.desktop {
+            width: 750px;
+            height: 560px;
+         }
+
+         @include media.tablet {
+            width: 455px;
+            height: 340px;
+         }
+
+         @include media.mobile {
+            width: 100%;
+            height: auto;
+         }
+      }
+   }
+}

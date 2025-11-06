@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Reffection" />
+  <!-- <meta property="og:image" content="%PUBLIC_URL%/logo_black_singlepage.jpg" /> -->
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <!-- <meta property="twitter:image" content="%PUBLIC_URL%/logo_black_singlepage.jpg" /> -->
+
+
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="yandex-verification" content="9cb1406fbe7f35f1" />
+  <script src="//code.jivo.ru/widget/Xcu4xpfJ7X" async></script>
+  <script src='https://code.reffection.ru/pixel/tags/1ea6d9bb-e0c4-b5a3-fb0c-3cf2dbe3e896'></script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(95785982, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/95785982" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    .first_loader {
+      background: #FFF;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+      pointer-events: none;
+    }
+  </style>
+  <%= htmlWebpackPlugin.options.templateParameters.metaInject %>
+    <script type="application/ld+json"><%= htmlWebpackPlugin.options.templateParameters.jsonLD %></script>
+</head>
+
+<body>
+  <div id="root">
+    <div class="first_loader"></div>
+  </div>
+</body>
+
+</html>

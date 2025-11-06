@@ -1,0 +1,243 @@
+@use '../../../scss/media';
+
+.landing_page_head {
+   display: flex;
+   align-items: center;
+   position: relative;
+   min-height: calc(100% - 82px);
+   min-height: calc(100dvh - media.fl(82, 50));
+
+   @include media.desktop {
+      min-height: calc(100dvh - 50px);
+   }
+
+   @include media.tablet {
+      min-height: unset;
+   }
+
+   &.orange {
+
+      &::before {
+         background: linear-gradient(86deg, #964216 -36.24%, #5E2A0F 5.11%, #2F1507 21.43%, #00040D 41.95%, #140902 151.08%);
+
+         @include media.mobile {
+            background: linear-gradient(180deg, #964216 -36.24%, #5E2A0F 5.11%, #2F1507 21.43%, #00040D 41.95%, #140902 151.08%);
+         }
+      }
+
+      @include media.mobile {
+         display: flex;
+         flex-direction: column;
+         row-gap: 30px;
+      }
+
+      &::after {
+         display: none;
+      }
+
+      .landing_page_head-image {
+         display: block;
+         height: 100%;
+         mix-blend-mode: difference;
+
+         @include media.tablet {
+            display: none;
+         }
+
+         @include media.mobile {
+            display: block;
+            position: unset;
+            height: 350px;
+            margin-left: auto;
+         }
+
+         video {
+            height: 100%;
+            width: auto;
+            object-position: right;
+         }
+      }
+
+      .landing_page_head_wrap {
+
+         @include media.mobile {
+            padding-bottom: 0px;
+         }
+
+         .landing_page_head_content {
+            @include media.tablet {
+               max-width: 700px;
+               padding: 0;
+            }
+         }
+      }
+   }
+
+   &.kitchens {
+
+      &::before {
+         background: radial-gradient(184.54% 140.85% at 97.71% -1.44%, #E0A673 0%, #A96C3D 39.76%, #98542F 59.33%, #694026 84.29%, #592A0F 100%);
+      }
+   }
+
+   .landing_page_head-image {
+      position: absolute;
+      right: 0;
+      bottom: 0px;
+      height: calc(100% + 82px);
+      height: calc(100dvh + media.fl(82, 50));
+      width: auto;
+      z-index: 5;
+
+      @include media.desktop {
+         height: calc(100dvh + 50px);
+      }
+
+      @include media.tablet {
+         min-height: unset;
+         display: none;
+      }
+
+      svg {
+         width: auto;
+         height: 100%;
+      }
+   }
+
+   &::before {
+      content: '';
+      display: block;
+      width: calc(100vw + 2px);
+      height: calc(100% + 82px);
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple-radial);
+      z-index: 1;
+      user-select: none;
+      pointer-events: none;
+   }
+
+   .landing_page_head_content {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+
+      @include media.tablet {
+         max-width: calc(50% - 30px);
+      }
+
+      @include media.mobile {
+         max-width: 100%;
+      }
+
+
+      &-subtitle {
+         color: #FFF;
+         font-family: "IBM Plex Mono";
+         font-size: 16px;
+         font-weight: 400;
+         line-height: 22px;
+         letter-spacing: 0.32px;
+         text-transform: uppercase;
+
+         @include media.tablet {
+            font-size: 12px;
+            line-height: 18px;
+            letter-spacing: 0.24px;
+         }
+      }
+
+      &-title {
+         color: #FFF;
+         font-size: 56px;
+         font-size: media.fl(56, 50);
+         font-weight: 400;
+         line-height: 64px;
+         line-height: media.fl(64, 58);
+         letter-spacing: -1.12px;
+
+         margin-top: 20px;
+
+         @include media.desktop {
+            font-size: 50px;
+            line-height: 58px;
+            letter-spacing: -1px;
+         }
+
+         @include media.tablet {
+            font-size: 28px;
+            line-height: 34px;
+            letter-spacing: -0.56px;
+         }
+
+         @include media.mobile {
+            margin-top: 14px;
+         }
+      }
+
+      &-descr {
+         color: #FFF;
+         font-size: 20px;
+         font-size: media.fl(20, 16);
+         font-weight: 400;
+         line-height: 28px;
+         line-height: media.fl(28, 24);
+         letter-spacing: 0.4px;
+
+         margin-top: 30px;
+         margin-top: media.fl(30, 20);
+
+         @include media.desktop {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.32px;
+
+            margin-top: 20px;
+         }
+
+         @include media.mobile {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.28px;
+
+            margin-top: 14px;
+         }
+      }
+
+      &-btn {
+         margin-top: 50px;
+
+         @include media.mobile {
+            margin-top: 30px;
+         }
+      }
+   }
+
+   &_wrap {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-top: 160px;
+      padding-bottom: 160px;
+
+      @include media.desktop {
+         padding: 150px 0;
+      }
+
+      @include media.tablet {
+         padding: 40px 0;
+      }
+
+      @include media.mobile {
+         padding: 30px 0;
+      }
+   }
+}

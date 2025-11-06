@@ -1,0 +1,77 @@
+@import '../../../scss/media';
+
+.arsenal {
+
+   .advantages_card_item {
+      background: rgba(255, 255, 255, 0.20);
+      box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 0.20) inset;
+      backdrop-filter: blur(25px);
+   }
+
+   &_card {
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+
+      @include desktop {
+         row-gap: 40px;
+      }
+
+      @include tablet {
+         display: block;
+      }
+
+      .icon_line {
+         display: flex;
+         justify-content: center;
+         width: 100%;
+         max-width: 100%;
+
+         svg {
+            max-width: 1220px;
+            max-width: clamp(62.125rem, -8.5rem + 70.625vw, 76.25rem);
+            // 1220px > 994px
+            width: 100%;
+            height: auto;
+
+            @include desktop {
+               max-width: 994px;
+            }
+         }
+      }
+   }
+
+   .section_head-icon {
+      svg {
+         .star {
+            animation: flashStar 1.5s linear forwards infinite;
+
+            &-el1 {
+               animation-delay: .4s;
+            }
+
+            &-el2 {
+               animation-delay: .1s;
+            }
+
+            &-el3 {
+               animation-delay: .8s;
+            }
+         }
+      }
+
+      @keyframes flashStar {
+         0% {
+            opacity: 1;
+         }
+
+         50% {
+            opacity: 0;
+         }
+
+         100% {
+            opacity: 1;
+         }
+      }
+   }
+}

@@ -1,0 +1,41 @@
+@import '../../../scss/media';
+
+.reviews {
+   background: var(--dark-gradient);
+   padding-top: 100px;
+   padding-top: clamp(5rem, -1.25rem + 6.25vw, 6.25rem);
+   // 100px > 80px
+   padding-bottom: 100px;
+   padding-bottom: clamp(5rem, -1.25rem + 6.25vw, 6.25rem);
+   // 100px > 80px
+
+   @include desktop {
+      padding-top: 80px;
+      padding-bottom: 80px;
+   }
+
+   @include tablet {
+      padding-top: 30px;
+      padding-bottom: 30px;
+   }
+
+   &_wrap {
+      display: flex;
+      flex-direction: column;
+      row-gap: 120px;
+      row-gap: clamp(4.375rem, -11.25rem + 15.625vw, 7.5rem);
+      // 120px > 70px
+
+      @include desktop {
+         row-gap: 70px;
+      }
+
+      @include tablet {
+         row-gap: 30px;
+      }
+
+      @include mobile {
+         row-gap: 60px;
+      }
+   }
+}

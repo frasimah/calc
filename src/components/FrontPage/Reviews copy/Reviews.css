@@ -1,0 +1,40 @@
+.reviews {
+  background: #212121;
+  padding-top: 100px;
+  padding-top: clamp(5rem, -1.25rem + 6.25vw, 6.25rem);
+  padding-bottom: 100px;
+  padding-bottom: clamp(5rem, -1.25rem + 6.25vw, 6.25rem);
+}
+@media screen and (max-width: 1599px) {
+  .reviews {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .reviews {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+.reviews_wrap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 120px;
+  row-gap: clamp(4.375rem, -11.25rem + 15.625vw, 7.5rem);
+}
+@media screen and (max-width: 1599px) {
+  .reviews_wrap {
+    row-gap: 70px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .reviews_wrap {
+    row-gap: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .reviews_wrap {
+    row-gap: 60px;
+  }
+}

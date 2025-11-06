@@ -1,0 +1,188 @@
+@use '/src/scss/media';
+
+.range_block {
+
+   &-title {
+      color: #FFF;
+      font-size: 16px;
+      font-size: media.fl(16, 14);
+      font-weight: 400;
+      line-height: 24px;
+      line-height: media.fl(24, 22);
+      letter-spacing: 0.32px;
+
+      @include media.desktop {
+         font-size: 14px;
+         line-height: 22px;
+         letter-spacing: 0.28px;
+      }
+
+      @include media.tablet {
+         font-size: 12px;
+         line-height: 18px;
+         letter-spacing: 0.24px;
+      }
+   }
+
+   .slider {
+      margin-top: 90px;
+      height: 88px;
+      height: media.fl(88, 66);
+
+      @include media.desktop {
+         height: 66px;
+      }
+
+      @include media.tablet {
+         height: 62px;
+         margin-top: 80px;
+      }
+
+      @include media.mobile {
+         height: 60px;
+      }
+
+
+      &-before {
+         position: absolute;
+         top: 0;
+         left: 0;
+         background: var(--dark-blue-gradient-linear);
+         width: 50%;
+         height: 100%;
+         border-radius: 30px;
+         border-radius: media.fl(30, 20);
+
+         @include media.desktop {
+            border-radius: 20px;
+         }
+      }
+
+      &-after {
+         position: absolute;
+         top: 0;
+         right: 0;
+         background: red;
+         width: 50%;
+         height: 100%;
+         background: rgba(255, 255, 255, 0.20);
+         backdrop-filter: blur(50px);
+         border-radius: 30px;
+         border-radius: media.fl(30, 20);
+
+         @include media.desktop {
+            border-radius: 20px;
+         }
+      }
+
+      &-handle {
+         display: flex;
+
+         &:focus-visible {
+            outline: none;
+            border: none;
+         }
+
+         &-cloud {
+            display: block;
+            color: #006AFE;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.32px;
+            position: absolute;
+            top: calc(-100% - 50px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFF;
+            padding: 8px 16px;
+            border-radius: 30px;
+
+            @include media.desktop {
+               top: calc(-100% - 45px);
+            }
+
+            @include media.mobile {
+               top: calc(-100% - 40px);
+            }
+
+
+            &::after {
+               content: '';
+               display: block;
+               position: absolute;
+               top: 99%;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 0;
+               height: 0;
+               border-left: 6px solid transparent;
+               border-right: 6px solid transparent;
+               border-top: 8px solid #FFF;
+            }
+         }
+
+         &-icon {
+            display: flex;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+            transition: box-shadow 0.2s ease, transform 0.1s ease;
+
+            @include media.hover {
+               box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+               transform: scale(1.05);
+            }
+
+            svg {
+               width: 100%;
+               height: 100%;
+            }
+         }
+
+      }
+   }
+
+   &_list {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      @include media.tablet {
+         margin-top: 24px;
+      }
+
+      @include media.mobile {
+         margin-top: 20px;
+      }
+
+      &-item {
+         color: #FFF;
+         font-size: 20px;
+         font-size: media.fl(20, 18);
+         font-weight: 400;
+         line-height: 30px;
+         line-height: media.fl(30, 26);
+         letter-spacing: 0.4px;
+
+         @include media.desktop {
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: 0.36px;
+         }
+
+         @include media.tablet {
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: 0.32px;
+         }
+
+         @include media.mobile {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.28px;
+         }
+      }
+   }
+}

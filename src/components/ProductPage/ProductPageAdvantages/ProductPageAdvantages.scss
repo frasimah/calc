@@ -1,0 +1,44 @@
+@use '../../../scss/media';
+
+.product_page_advantages {
+   margin-top: 120px;
+   margin-top: media.fl(120, 80);
+
+   @include media.desktop {
+      margin-top: 80px;
+   }
+
+   @include media.tablet {
+      margin-top: 60px;
+   }
+
+   &-text {
+
+      >* {
+         &:first-child {
+            margin-top: 0px;
+         }
+
+         &:last-child {
+            margin-bottom: 0px;
+         }
+      }
+
+      p {
+         margin-bottom: 10px;
+      }
+
+      ul {
+         list-style-type: disc;
+         padding-left: 20px;
+
+         li {
+            margin-bottom: 10px;
+
+            &:last-child {
+               margin-bottom: 0px;
+            }
+         }
+      }
+   }
+}

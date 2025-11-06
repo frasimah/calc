@@ -1,0 +1,11 @@
+.consent h1 {
+  max-width: 950px;
+}
+@media screen and (max-width: 1599px) {
+  .consent h1 {
+    max-width: 700px;
+  }
+}
+.consent p {
+  margin-bottom: 15px;
+}
