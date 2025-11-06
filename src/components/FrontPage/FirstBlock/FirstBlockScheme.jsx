@@ -10,41 +10,41 @@ function FirstBlockScheme() {
    const [svgTranslateX, setSvgTranslateX] = useState(0);
    const svgRef = useRef(null)
 
-   var timeline = gsap.timeline({ repeat: -1, repeatDelay: .5, });
-
-   const addActiveClassSvg = () => {
-      if (svgRef && svgRef.current) {
-         const svg = svgRef.current;
-         const allGroup = svg.querySelector('.all_group')
-
-         timeline.to(svg, {
-            duration: 11,
-            onStart: () => {
-               svg.classList.add('active')
-               allGroup.classList.add('active')
-            }
-         })
-         timeline.to(svg, {
-            duration: 0,
-            ease: "none",
-            onComplete: () => {
-               svg.classList.remove('active')
-            }
-         })
-         timeline.to(allGroup, {
-            duration: 1,
-            ease: "none",
-            onComplete: () => {
-               allGroup.classList.remove('active')
-            }
-         })
-      }
-   }
+   const timelineRef = useRef(gsap.timeline({ repeat: -1, repeatDelay: .5, }));
    // Эффект для добавления класса
    useEffect(() => {
+      const addActiveClassSvg = () => {
+         if (svgRef && svgRef.current) {
+            const svg = svgRef.current;
+            const allGroup = svg.querySelector('.all_group')
+            const timeline = timelineRef.current;
+
+            timeline.to(svg, {
+               duration: 11,
+               onStart: () => {
+                  svg.classList.add('active')
+                  allGroup.classList.add('active')
+               }
+            })
+            timeline.to(svg, {
+               duration: 0,
+               ease: "none",
+               onComplete: () => {
+                  svg.classList.remove('active')
+               }
+            })
+            timeline.to(allGroup, {
+               duration: 1,
+               ease: "none",
+               onComplete: () => {
+                  allGroup.classList.remove('active')
+               }
+            })
+         }
+      }
       // Функция для добавления класса
       addActiveClassSvg()
-   }, [addActiveClassSvg]);
+   }, []);
 
    // Эффект для вычисления смещения
    useEffect(() => {
