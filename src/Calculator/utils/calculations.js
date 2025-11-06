@@ -51,6 +51,14 @@ export const getServicePrice = (serviceType, contacts, techPackageName) => {
     return totalCost;
 };
 
+// Возвращает суммарную стоимость и пороговую цену за единицу для текущего объёма
+export const getServicePriceDetails = (serviceType, contacts, techPackageName) => {
+    const packagePricing = CONFIG.SERVICE_PRICING_BY_PACKAGE?.[techPackageName]?.[serviceType];
+    const pricing = packagePricing || CONFIG.SERVICE_PRICING[serviceType];
+    if (!pricing) return { totalCost: 0, pricePerUnit: 0 };
+    return calculateCostByTiers(contacts, pricing);
+};
+
 export const getContactProcessingCost = (contacts) => {
     const pricing = CONFIG.CONTACT_PROCESSING_PRICING;
     if (!pricing) return { totalCost: 0, pricePerContact: 0 };
