@@ -46,7 +46,6 @@ function CityBlock() {
       <div className={`city_block ${openCity ? 'active' : ''}`} ref={refCity}>
          <button
             type='button'
-            role='button'
             aria-label='Раскрыть список городов'
             className="city_block-render"
             onClick={handleClick}>

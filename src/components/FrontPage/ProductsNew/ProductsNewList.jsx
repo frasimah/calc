@@ -10,7 +10,6 @@ function ProductsNewList({ children, className, classCol }) {
    const isShowSlider = useMediaQuery({ query: '(max-width: 1399px)' });
 
    const blockRef = useRef(null);
-   const swiperRef = useRef();
 
    useEffect(() => {
 
@@ -82,16 +81,7 @@ function ProductsNewList({ children, className, classCol }) {
          window.removeEventListener('resize', setMaxSlideTitleHeight);
       };
    }, [isShowSlider]);
-   const array = [
-      {
-         answer: 'Это провал',
-         score: '75'
-      },
-      {
-         answer: 'С кем не бывает',
-         score: '25'
-      },
-   ]
+   // removed unused demo array
    return (
       !isShowSlider ? (
          <div className={`products_wrap row ${className ? className : ''}`} ref={blockRef}>

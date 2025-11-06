@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive'
 import './ServicePageTabs.scss'
-import { useEffect } from 'react';
+// removed unused import
 
 function ServicePageTabs({ activeTab = 1, onTabClick }) {
    const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
