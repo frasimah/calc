@@ -63,12 +63,12 @@ export const getServicePrice = (serviceType, contacts, techPackageName) => {
 
 // Конверсия по типам сервиса и среднему чеку
 export const getConversionRate = (averageCheck, serviceType) => {
-    // Базовая шкала Segment Scoring в зависимости от среднего чека
+    // Базовая шкала Segment Scoring в зависимости от среднего чека (обновлённые пороги)
     let baseRate;
-    if (averageCheck <= 60000) baseRate = 0.03;
-    else if (averageCheck <= 150000) baseRate = 0.02;
-    else if (averageCheck >= 3000000) baseRate = 0.005;
-    else baseRate = 0.01;
+    if (averageCheck <= 100000) baseRate = 0.03;               // ≤ 100 000 → 3%
+    else if (averageCheck <= 1000000) baseRate = 0.02;          // 100 001–1 000 000 → 2%
+    else if (averageCheck <= 2999999) baseRate = 0.01;          // 1 000 001–2 999 999 → 1%
+    else baseRate = 0.005;                                      // ≥ 3 000 000 → 0.5%
 
     // Мультипликаторы по типу услуги:
     // 1: Segment Scoring — базовая шкала
