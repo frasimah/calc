@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { CONFIG } from '../constants';
-import { getConversionRate, getServicePrice, getContactProcessingCost } from '../utils/calculations';
+import { getConversionRate, getServicePriceDetails, getContactProcessingCost } from '../utils/calculations';
 
 export const useCalculator = (serviceType, contacts, averageCheck, techPackageName) => {
 
@@ -23,7 +23,9 @@ export const useCalculator = (serviceType, contacts, averageCheck, techPackageNa
         const packageCost = techPackage.price;
         const discount = techPackage.discount;
 
-        let dataCost = getServicePrice(serviceType, contacts, techPackageName);
+        const serviceDetails = getServicePriceDetails(serviceType, contacts, techPackageName);
+        let dataCost = serviceDetails.totalCost;
+        let dataPricePerUnit = serviceDetails.pricePerUnit;
         let contactProcessingCost = 0;
         let pricePerContact = 0;
         let isTechSubscription = techPackageName === "Tech" || techPackageName === "Call";
@@ -48,8 +50,8 @@ export const useCalculator = (serviceType, contacts, averageCheck, techPackageNa
 
         // Console log: подробный отчет по расчетам
         try {
-            const costPerDataUnit = contacts > 0 && dataCost > 0 ? Math.round(dataCost / contacts) : 0;
-            const processingCostPerUnit = contacts > 0 && contactProcessingCost > 0 ? Math.round(contactProcessingCost / contacts) : 0;
+            const costPerDataUnit = dataPricePerUnit || 0;
+            const processingCostPerUnit = contacts > 0 && contactProcessingCost > 0 ? (contactProcessingCost / contacts) : 0;
             console.groupCollapsed(
                 `[Calculator] service=${serviceType} contacts=${contacts} avgCheck=${averageCheck} package=${techPackageName}`
             );
@@ -86,6 +88,7 @@ export const useCalculator = (serviceType, contacts, averageCheck, techPackageNa
             totalCostWithPackage,
             contactProcessingCost,
             pricePerContact,
+            dataPricePerUnit,
             isTechSubscription
         };
     }, [serviceType, contacts, averageCheck, techPackageName]);

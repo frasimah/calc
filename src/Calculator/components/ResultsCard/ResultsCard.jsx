@@ -72,7 +72,7 @@ const ResultsCard = ({ results, contacts, serviceType, averageCheck, techPackage
 
                     <div className="result-item">
                         <span className="result-text">
-                            {serviceType === 3 ? "Стоимость обработки" : "Стоимость данных"}: {contacts > 0 && results.totalCost > 0 ? Math.round(results.totalCost / contacts) : 0}₽/ед
+                            {serviceType === 3 ? "Стоимость обработки" : "Стоимость данных"}: {contacts > 0 ? results.dataPricePerUnit : 0}₽/ед
                         </span>
                     </div>
 

@@ -224,14 +224,14 @@ const ResultsCard = ({ results, contacts, serviceType }) => {
 
                 <div className="result-item">
                     <span className="result-text">
-                        {serviceType === 3 ? "Стоимость обработки" : "Стоимость данных"}: {contacts > 0 && results.totalCost > 0 ? Math.round(results.totalCost / contacts) : 0}₽/ед
+                        {serviceType === 3 ? "Стоимость обработки" : "Стоимость данных"}: {contacts > 0 ? results.dataPricePerUnit : 0}₽/ед
                     </span>
                 </div>
 
                 {(serviceType === 1 || serviceType === 2) && (
                     <div className="result-item">
                         <span className="result-text">
-                            Обработка контакта: {results.isTechSubscription ? "не включено" : `${contacts > 0 && results.contactProcessingCost > 0 ? Math.round(results.contactProcessingCost / contacts) : 0}₽/ед`}
+                            Обработка контакта: {results.isTechSubscription ? "не включено" : `${results.pricePerContact}₽/ед`}
                         </span>
                     </div>
                 )}
