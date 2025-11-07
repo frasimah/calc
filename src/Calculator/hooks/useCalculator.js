@@ -46,6 +46,37 @@ export const useCalculator = (serviceType, contacts, averageCheck, techPackageNa
         const expectedConversions = Math.round(contacts * conversionRate);
         const costPerConversion = expectedConversions > 0 ? Math.round(totalCostWithPackage / expectedConversions) : 0;
 
+        // Console log: подробный отчет по расчетам
+        try {
+            const costPerDataUnit = contacts > 0 && dataCost > 0 ? Math.round(dataCost / contacts) : 0;
+            const processingCostPerUnit = contacts > 0 && contactProcessingCost > 0 ? Math.round(contactProcessingCost / contacts) : 0;
+            console.groupCollapsed(
+                `[Calculator] service=${serviceType} contacts=${contacts} avgCheck=${averageCheck} package=${techPackageName}`
+            );
+            console.table({
+                conversionRate_percent: Number((conversionRate * 100).toFixed(2)),
+                expectedConversions,
+                costPerConversion,
+                contacts,
+                averageCheck,
+                serviceType,
+                techPackage: techPackageName,
+                isTechSubscription,
+                discount_percent: Number((discount * 100).toFixed(2)),
+                dataCost,
+                costPerDataUnit,
+                contactProcessingCost,
+                processingCostPerUnit,
+                packageCost,
+                totalServiceCost,
+                discountedServiceCost,
+                totalCostWithPackage
+            });
+            console.groupEnd();
+        } catch (e) {
+            // не ломаем рендер из-за логгирования
+        }
+
         return {
             totalCost: dataCost,
             conversionRate,

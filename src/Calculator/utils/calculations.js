@@ -63,14 +63,22 @@ export const getServicePrice = (serviceType, contacts, techPackageName) => {
 
 // Конверсия по типам сервиса и среднему чеку
 export const getConversionRate = (averageCheck, serviceType) => {
-    if (serviceType === 2) return 0.04; // Retargeting Trigger Leads
-    if (serviceType === 3) return 0.03; // Call Center (reactivation/validation)
+    // Базовая шкала Segment Scoring в зависимости от среднего чека
+    let baseRate;
+    if (averageCheck <= 60000) baseRate = 0.03;
+    else if (averageCheck <= 150000) baseRate = 0.02;
+    else if (averageCheck >= 3000000) baseRate = 0.005;
+    else baseRate = 0.01;
 
-    // Segment Scoring: конверсия снижается с ростом среднего чека
-    if (averageCheck <= 60000) return 0.03;
-    if (averageCheck <= 150000) return 0.02;
-    if (averageCheck >= 3000000) return 0.005;
-    return 0.01;
+    // Мультипликаторы по типу услуги:
+    // 1: Segment Scoring — базовая шкала
+    // 2: Retargeting Trigger Leads — вдвое больше
+    // 3: Reactivation/Validation (Call Center) — втрое больше
+    const serviceMultiplier = serviceType === 2 ? 2 : serviceType === 3 ? 3 : 1;
+
+    const rate = baseRate * serviceMultiplier;
+    // Защита от некорректных значений (не более 100%)
+    return Math.min(rate, 1);
 };
 
 // Возвращает суммарную стоимость и выбранную плоскую цену за единицу
