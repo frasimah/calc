@@ -42,7 +42,6 @@ export const calculateCostByTiers = (contacts, pricing) => {
         if (tierSize > 0) {
             const unitPrice = tier.price_per_contact ?? tier.price_per_call ?? 0;
             totalCost += tierSize * unitPrice;
-            pricePerUnit = unitPrice;
             remainingContacts -= tierSize;
         }
 
