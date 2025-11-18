@@ -1,7 +1,21 @@
+jest.mock('nanoid', () => ({ nanoid: () => 'test-id' }));
+jest.mock('react-modal', () => {
+  const React = require('react');
+  const Modal = ({ isOpen, children }) => (isOpen ? React.createElement('div', null, children) : null);
+  Modal.setAppElement = () => {};
+  return { __esModule: true, default: Modal, setAppElement: () => {} };
+});
+jest.mock('react-router-dom', () => {
+  const actual = jest.requireActual('react-router-dom');
+  const React = require('react');
+  const Link = ({ to, children, ...props }) => React.createElement('a', { href: typeof to === 'string' ? to : '#', ...props }, children);
+  return { __esModule: true, ...actual, Link };
+});
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { renderHook, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { MemoryRouter } from 'react-router-dom';
 import Calculator, { ErrorBoundary } from './Calculator';
 
 // Mock business logic functions for testing
@@ -57,21 +71,13 @@ const calculateCostByTiers = (contacts, pricing) => {
 };
 
 const getConversionRate = (averageCheck, serviceType) => {
-    let baseRate;
-    if (averageCheck < 100000) {
-        baseRate = 0.03;
-    } else if (averageCheck >= 100000 && averageCheck < 3000000) {
-        baseRate = 0.02;
-    } else {
-        baseRate = 0.005;
-    }
-    
-    if (serviceType === 2) {
-        return baseRate * 2;
-    } else if (serviceType === 3) {
-        return baseRate * 1.5;
-    }
-    return baseRate;
+    const baseByService = { 1: 0.01, 2: 0.02, 3: 0.03 }[serviceType] || 0;
+    let multiplier = 1;
+    if (averageCheck <= 99999) multiplier = 2;
+    else if (averageCheck >= 100000 && averageCheck <= 999999) multiplier = 1.5;
+    else if (averageCheck >= 1000000 && averageCheck <= 2999999) multiplier = 1;
+    else if (averageCheck >= 3000000) multiplier = 0.5;
+    return baseByService * multiplier;
 };
 
 const getServicePrice = (serviceType, contacts) => {
@@ -111,28 +117,28 @@ describe('Business Logic Tests', () => {
     });
 
     describe('getConversionRate', () => {
-        test('returns 3% for low average check', () => {
-            expect(getConversionRate(50000, 1)).toBe(0.03);
+        test('returns 2% for low average check', () => {
+            expect(getConversionRate(50000, 1)).toBe(0.02);
         });
 
-        test('returns 2% for medium average check', () => {
-            expect(getConversionRate(150000, 1)).toBe(0.02);
+        test('returns 1.5% for medium average check', () => {
+            expect(getConversionRate(150000, 1)).toBe(0.015);
         });
 
         test('returns 0.5% for high average check', () => {
             expect(getConversionRate(5000000, 1)).toBe(0.005);
         });
 
-        test('doubles rate for retargeting service (type 2)', () => {
-            expect(getConversionRate(150000, 2)).toBe(0.04);
+        test('uses base 2% for retargeting with multiplier', () => {
+            expect(getConversionRate(150000, 2)).toBe(0.03);
         });
 
-        test('multiplies by 1.5 for call center service (type 3)', () => {
-            expect(getConversionRate(150000, 3)).toBe(0.03);
+        test('applies multiplier for call center service (type 3)', () => {
+            expect(getConversionRate(150000, 3)).toBe(0.045);
         });
 
         test('handles boundary values correctly', () => {
-            expect(getConversionRate(100000, 1)).toBe(0.02);
+            expect(getConversionRate(100000, 1)).toBe(0.015);
             expect(getConversionRate(3000000, 1)).toBe(0.005);
         });
     });
@@ -161,40 +167,40 @@ describe('Business Logic Tests', () => {
 
 describe('Calculator Component Tests', () => {
     test('renders main calculator elements', () => {
-        render(<Calculator />);
+        render(<MemoryRouter><Calculator /></MemoryRouter>);
         
-        expect(screen.getByText('Калькулятор стоимости разработки')).toBeInTheDocument();
-        expect(screen.getByText('Выберите услугу')).toBeInTheDocument();
+        expect(screen.getByText('Калькулятор стоимости')).toBeInTheDocument();
+        expect(screen.getByText('Выберите продукт')).toBeInTheDocument();
         expect(screen.getByText('Средний чек продажи (руб)')).toBeInTheDocument();
         expect(screen.getByText('Выберите количество контактов')).toBeInTheDocument();
     });
 
-    test('shows results card placeholder when no data', () => {
-        render(<Calculator />);
-        expect(screen.getByText('Введите данные для расчета.')).toBeInTheDocument();
+    test('renders results card section', () => {
+        render(<MemoryRouter><Calculator /></MemoryRouter>);
+        expect(screen.getByText(/Прогноз конверсии:/)).toBeInTheDocument();
     });
 
     test('service selector dropdown works', () => {
-        render(<Calculator />);
+        render(<MemoryRouter><Calculator /></MemoryRouter>);
         
-        const serviceSelector = screen.getByRole('combobox');
+        const [serviceSelector] = screen.getAllByRole('combobox');
         fireEvent.click(serviceSelector);
         
-        expect(screen.getByText('Retargeting Trigger Leads')).toBeInTheDocument();
-        expect(screen.getByText('Reactivation/Validation')).toBeInTheDocument();
+        expect(screen.getAllByText('Retargeting Trigger Leads').length).toBeGreaterThan(0);
+        expect(screen.getAllByText('Reactivation/Validation').length).toBeGreaterThan(0);
     });
 
     test('average check input accepts numeric input', () => {
-        render(<Calculator />);
+        render(<MemoryRouter><Calculator /></MemoryRouter>);
         
         const input = screen.getByRole('textbox');
         fireEvent.change(input, { target: { value: '200000' } });
         
-        expect(input.value).toBe('200 000');
+        expect(input.value).toBe('200 000');
     });
 
     test('average check input filters non-numeric characters', () => {
-        render(<Calculator />);
+        render(<MemoryRouter><Calculator /></MemoryRouter>);
         
         const input = screen.getByRole('textbox');
         fireEvent.change(input, { target: { value: 'abc123def' } });
@@ -246,9 +252,9 @@ describe('Format Number Function', () => {
     const formatNumber = (num) => num.toLocaleString('ru-RU');
 
     test('formats numbers with Russian locale', () => {
-        expect(formatNumber(1000)).toBe('1 000');
-        expect(formatNumber(1000000)).toBe('1 000 000');
-        expect(formatNumber(123456)).toBe('123 456');
+        expect(formatNumber(1000)).toBe('1 000');
+        expect(formatNumber(1000000)).toBe('1 000 000');
+        expect(formatNumber(123456)).toBe('123 456');
     });
 
     test('handles zero and small numbers', () => {

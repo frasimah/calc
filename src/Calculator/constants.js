@@ -55,7 +55,7 @@ export const CONFIG = {
             { contacts: 70000, price_per_contact: 16 },
             { contacts: 80000, price_per_contact: 16 },
             { contacts: 90000, price_per_contact: 16 },
-            { contacts: 100000, price_per_contact: 16 }
+            { contacts: 100000, price_per_contact: 15 }
         ],
         3: [
             { contacts: 0, price_per_call: 50 },
@@ -245,8 +245,8 @@ export const CONFIG = {
             3: 0.03  // Reactivation/Validation
         },
         MULTIPLIERS: [
-            { min: 0, max: 100000, multiplier: 3 },
-            { min: 100000, max: 1000000, multiplier: 2 },
+            { min: 0, max: 100000, multiplier: 2 },
+            { min: 100000, max: 1000000, multiplier: 1.5 },
             { min: 1000000, max: 3000000, multiplier: 1 },
             { min: 3000000, max: Infinity, multiplier: 0.5 }
         ]

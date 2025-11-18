@@ -58,21 +58,13 @@ const calculateCostByTiers = (contacts, pricing) => {
 };
 
 const getConversionRate = (averageCheck, serviceType) => {
-    let baseRate;
-    if (averageCheck < 100000) {
-        baseRate = 0.03;
-    } else if (averageCheck >= 100000 && averageCheck < 3000000) {
-        baseRate = 0.02;
-    } else {
-        baseRate = 0.005;
-    }
-    
-    if (serviceType === 2) {
-        return baseRate * 2;
-    } else if (serviceType === 3) {
-        return baseRate * 1.5;
-    }
-    return baseRate;
+    const baseByService = { 1: 0.01, 2: 0.02, 3: 0.03 }[serviceType] || 0;
+    let multiplier = 1;
+    if (averageCheck <= 99999) multiplier = 2;
+    else if (averageCheck >= 100000 && averageCheck <= 999999) multiplier = 1.5;
+    else if (averageCheck >= 1000000 && averageCheck <= 2999999) multiplier = 1;
+    else if (averageCheck >= 3000000) multiplier = 0.5;
+    return baseByService * multiplier;
 };
 
 const getServicePrice = (serviceType, contacts) => {
@@ -192,8 +184,8 @@ describe('useCalculator Hook Tests', () => {
     test('calculates correct values for service type 1 with standard package', () => {
         const { result } = renderHook(() => useCalculator(1, 1000, 100000, "Стандарт"));
         
-        expect(result.current.conversionRate).toBe(0.02);
-        expect(result.current.expectedConversions).toBe(20);
+        expect(result.current.conversionRate).toBe(0.015);
+        expect(result.current.expectedConversions).toBe(15);
         expect(result.current.packageCost).toBe(14900);
         expect(result.current.isTechSubscription).toBe(true);
         expect(result.current.contactProcessingCost).toBe(0);
@@ -202,7 +194,7 @@ describe('useCalculator Hook Tests', () => {
     test('calculates correct values for service type 1 with premium package', () => {
         const { result } = renderHook(() => useCalculator(1, 1000, 100000, "Премиум"));
         
-        expect(result.current.conversionRate).toBe(0.02);
+        expect(result.current.conversionRate).toBe(0.015);
         expect(result.current.packageCost).toBe(24900);
         expect(result.current.isTechSubscription).toBe(false);
         expect(result.current.contactProcessingCost).toBe(10000); // 1000 * 10
@@ -211,14 +203,14 @@ describe('useCalculator Hook Tests', () => {
     test('calculates correct values for service type 2 (retargeting)', () => {
         const { result } = renderHook(() => useCalculator(2, 1000, 100000, "Стандарт"));
         
-        expect(result.current.conversionRate).toBe(0.04); // doubled for retargeting
-        expect(result.current.expectedConversions).toBe(40);
+        expect(result.current.conversionRate).toBe(0.03);
+        expect(result.current.expectedConversions).toBe(30);
     });
 
     test('calculates correct values for service type 3 (call center)', () => {
         const { result } = renderHook(() => useCalculator(3, 1000, 100000, "Call"));
         
-        expect(result.current.conversionRate).toBe(0.03); // 1.5x for call center
+        expect(result.current.conversionRate).toBe(0.045);
         expect(result.current.packageCost).toBe(4990);
         expect(result.current.isTechSubscription).toBe(true);
         expect(result.current.contactProcessingCost).toBe(0);
@@ -253,7 +245,7 @@ describe('useCalculator Hook Tests', () => {
         rerender();
         
         expect(result.current.conversionRate).not.toBe(initialResult.conversionRate);
-        expect(result.current.conversionRate).toBe(0.04); // Doubled for retargeting
+        expect(result.current.conversionRate).toBe(0.03);
     });
 
     test('handles edge case of very high average check', () => {

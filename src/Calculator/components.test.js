@@ -141,7 +141,7 @@ const SubscriptionSelector = ({
             </div>
             <div
                 className={`subscription-selector ${serviceType === 3 ? 'disabled' : ''}`}
-                onClick={onToggleDropdown}
+                onClick={() => { if (serviceType !== 3) onToggleDropdown(); }}
                 style={{
                     opacity: serviceType === 3 ? 0.6 : 1,
                     cursor: serviceType === 3 ? 'not-allowed' : 'pointer'
@@ -357,7 +357,7 @@ describe('AverageCheckInput Component Tests', () => {
         render(<AverageCheckInput {...defaultProps} />);
 
         const input = screen.getByRole('textbox');
-        expect(input.value).toBe('100 000');
+        expect(input.value).toBe('100 000');
     });
 
     test('handles empty value correctly', () => {
@@ -435,10 +435,10 @@ describe('SubscriptionSelector Component Tests', () => {
     test('shows dropdown options when open for service types 1 and 2', () => {
         render(<SubscriptionSelector {...defaultProps} isDropdownOpen={true} />);
 
-        expect(screen.getByText('Tech')).toBeInTheDocument();
+        expect(screen.getAllByText('Tech').length).toBeGreaterThan(0);
         expect(screen.getByText('Must')).toBeInTheDocument();
         expect(screen.getByText('Pro')).toBeInTheDocument();
-        expect(screen.queryByText('Call')).not.toBeInTheDocument(); // Should be filtered out
+        expect(screen.queryByText('Call')).not.toBeInTheDocument();
     });
 
     test('disables dropdown for service type 3 (call center)', () => {
@@ -500,6 +500,8 @@ describe('ResultsCard Component Tests', () => {
         conversionRate: 0.02,
         totalCost: 70000,
         contactProcessingCost: 10000,
+        pricePerContact: 10,
+        dataPricePerUnit: 70,
         packageCost: 14900,
         costPerConversion: 4245,
         totalCostWithPackage: 84900,

@@ -30,7 +30,6 @@ const getUnitPriceForVolume = (pricing, contacts) => {
 export const calculateCostByTiers = (contacts, pricing) => {
     let totalCost = 0;
     let remainingContacts = contacts;
-    let pricePerUnit = 0;
 
     for (let i = 0; i < pricing.length; i++) {
         const tier = pricing[i];
@@ -50,7 +49,8 @@ export const calculateCostByTiers = (contacts, pricing) => {
         if (remainingContacts <= 0) break;
     }
 
-    return { totalCost, pricePerUnit };
+    const unitPrice = getUnitPriceForVolume(pricing, contacts);
+    return { totalCost, pricePerUnit: unitPrice };
 };
 
 export const getServicePrice = (serviceType, contacts, techPackageName) => {
@@ -63,21 +63,13 @@ export const getServicePrice = (serviceType, contacts, techPackageName) => {
 
 // Конверсия по типам сервиса и среднему чеку
 export const getConversionRate = (averageCheck, serviceType) => {
-    // Базовая шкала Segment Scoring в зависимости от среднего чека (обновлённые пороги)
-    let baseRate;
-    if (averageCheck <= 100000) baseRate = 0.03;               // ≤ 100 000 → 3%
-    else if (averageCheck <= 1000000) baseRate = 0.02;          // 100 001–1 000 000 → 2%
-    else if (averageCheck <= 2999999) baseRate = 0.01;          // 1 000 001–2 999 999 → 1%
-    else baseRate = 0.005;                                      // ≥ 3 000 000 → 0.5%
-
-    // Мультипликаторы по типу услуги:
-    // 1: Segment Scoring — базовая шкала
-    // 2: Retargeting Trigger Leads — вдвое больше
-    // 3: Reactivation/Validation (Call Center) — втрое больше
-    const serviceMultiplier = serviceType === 2 ? 2 : serviceType === 3 ? 3 : 1;
-
-    const rate = baseRate * serviceMultiplier;
-    // Защита от некорректных значений (не более 100%)
+    const baseByService = CONFIG.CONVERSION.BASE_BY_SERVICE[serviceType] || 0;
+    let multiplier = 1;
+    if (averageCheck <= 99999) multiplier = 2;
+    else if (averageCheck >= 100000 && averageCheck <= 999999) multiplier = 1.5;
+    else if (averageCheck >= 1000000 && averageCheck <= 2999999) multiplier = 1;
+    else if (averageCheck >= 3000000) multiplier = 0.5;
+    const rate = baseByService * multiplier;
     return Math.min(rate, 1);
 };
 
